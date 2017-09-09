@@ -4,19 +4,19 @@ cc.Class({
     properties: {
         xPosition:0,
         yPosition:0,
-        speed:10,
+        speed:2,
         isOnFloor:true,
-        jumpLevel:0,
-        baseSpeedLevel:1,
-        speedLevel:0,
+        jumpLevel:5,
+        baseSpeedLevel:7,
+        speedLevel:3,
         //player距离的地板的高度
-        fromFloorHeight:0,
+        fromFloorHeight:20,
         //player静止的距离范围
-        stopRange:10,
+        stopRange:5,
         //floor下降时，player下落移动时长
-        moveYDuration:2,
+        moveYDuration:0.2,
         //player下落的时长
-        fallDuration:10,
+        fallDuration:1,
          // player node 当前所在的floor node
         currentFloor: {
             default: null,

@@ -2,9 +2,9 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        floorGap:0,
+        floorGap:80,
         //最底下的floor的Y坐标
-        bottomFloorY:0,
+        bottomFloorY:237,
         //最底下的floor的X坐标
         bottomFloorX:0,
         //floor数组
