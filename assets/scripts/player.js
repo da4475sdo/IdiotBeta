@@ -52,6 +52,23 @@ cc.Class({
         }
     },
 
+    // 只在两个碰撞体开始接触时被调用一次
+    onBeginContact: function (contact, selfCollider, otherCollider) {
+        console.log("contact");
+    },
+
+    // 只在两个碰撞体结束接触时被调用一次
+    onEndContact: function (contact, selfCollider, otherCollider) {
+    },
+
+    // 每次将要处理碰撞体接触逻辑时被调用
+    onPreSolve: function (contact, selfCollider, otherCollider) {
+    },
+
+    // 每次处理完碰撞体接触逻辑时被调用
+    onPostSolve: function (contact, selfCollider, otherCollider) {
+    },
+
     groupMove:function (distance){
         var playerYMoveDirecition=this.floorMove(),
             _currentFloor=this.currentFloor.getComponent('floor');
@@ -140,7 +157,7 @@ cc.Class({
             landY=(scene.y-scene.height)-this.yPosition,
             fallXMove=cc.moveBy(this.fallDuration,cc.p(landX,0)).easing(cc.easeCircleActionOut()),
             fallYMove=cc.moveBy(this.fallDuration,cc.p(0,landY)).easing(cc.easeCircleActionIn());
-        this.node.runAction(cc.spawn(fallXMove,fallYMove));
+        //this.node.runAction(cc.spawn(fallXMove,fallYMove));
     },
 
     floorRest:function (){

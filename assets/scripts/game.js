@@ -25,6 +25,10 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        //开启物理系统
+        cc.director.getPhysicsManager().enabled = true;
+        //开启碰撞系统
+        cc.director.getCollisionManager().enabled=true;
         this.player.getComponent("player").game=this;
         this.createNewFloor();
     },
