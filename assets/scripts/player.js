@@ -17,6 +17,7 @@ cc.Class({
         moveYDuration:0.2,
         //player下落的时长
         fallDuration:1,
+        once:true,
          // player node 当前所在的floor node
         currentFloor: {
             default: null,
@@ -36,16 +37,17 @@ cc.Class({
     },
 
     onDeviceMotionEvent:function (event){
-        //player移动的距离
-        var deviceMotion=event.acc.x,
+        if(this.isOnFloor){
+            //player移动的距离
+            var deviceMotion=event.acc.x,
             distance=deviceMotion*this.speed*this.speedLevel,
             playerToFloorCenterDis=Math.sqrt((this.node.x-this.currentFloor.x)*(this.node.x-this.currentFloor.x)
-            +(this.node.y-this.currentFloor.y)*(this.node.y-this.currentFloor.y));
-        //判断player是在floor上移动还是下落
-        if(playerToFloorCenterDis<(this.currentFloor.width+this.node.width)/2){
-            this.groupMove(distance);
-        }else{
-            if(this.isOnFloor&&this.currentFloor.getComponent("floor").isPlayerOn){
+            +(this.node.y-this.currentFloor.y)*(this.node.y-this.currentFloor.y)),
+            _currentFloor=this.currentFloor.getComponent("floor");
+            //判断player是在floor上移动还是下落
+            if((playerToFloorCenterDis<(this.currentFloor.width+this.node.width)/2)){
+                this.groupMove(distance);
+            }else{
                 this.playerFall(Math.abs(distance));
                 this.floorRest();
             }
@@ -54,7 +56,21 @@ cc.Class({
 
     // 只在两个碰撞体开始接触时被调用一次
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        console.log("contact");
+        var otherColliderNode=otherCollider.node;
+        //当player触碰到上下边界时，游戏结束
+        if(otherColliderNode.group==="boundary"){
+            this.playerFailed();
+            return;
+        }
+        //当player下落到新的floor时调用
+        if(otherColliderNode!=this.currentFloor){
+            this.currentFloor=otherColliderNode;
+            //同步player X坐标
+            this.xPosition=this.node.x;
+            this.setPlayerOnFloorState(true);
+            //设置游戏得分
+            this.game.setScore(otherColliderNode.tag);
+        }
     },
 
     // 只在两个碰撞体结束接触时被调用一次
@@ -69,6 +85,11 @@ cc.Class({
     onPostSolve: function (contact, selfCollider, otherCollider) {
     },
 
+    setPlayerOnFloorState:function (_switch){
+        this.isOnFloor=_switch;
+        this.currentFloor.getComponent("floor").isPlayerOn=_switch;
+    },
+
     groupMove:function (distance){
         var playerYMoveDirecition=this.floorMove(),
             _currentFloor=this.currentFloor.getComponent('floor');
@@ -78,8 +99,7 @@ cc.Class({
     playerMove:function (distance,playerYMoveDirecition,_currentFloor){
         var _floorAngle=this.currentFloor.rotation,
             yMoveDistance=distance*Math.sin(Math.abs(_floorAngle)*0.0174533);
-        this.xPosition+=(distance*Math.cos(Math.abs(_floorAngle)*0.0174533));
-        this.yPosition+=playerYMoveDirecition?-yMoveDistance:yMoveDistance;
+            this.xPosition+=(distance*Math.cos(Math.abs(_floorAngle)*0.0174533));
         //根据角度更新速度等级
         _floorAngle*distance?this.speedLevel=this.baseSpeedLevel+Math.abs(_floorAngle):this.speedLevel=this.baseSpeedLevel-Math.abs(_floorAngle);
     },
@@ -109,38 +129,22 @@ cc.Class({
     },
 
     update (dt) {
+        //player在floor上时
         if(this.isOnFloor){
             var _currentFloor=this.currentFloor.getComponent('floor'),
                 floorRotate=new cc.RotateBy(_currentFloor.rotateDuration, _currentFloor.rotateAngle),
                 callback = cc.callFunc(this.getFloorAngle, this,_currentFloor),
                 _maxFloorAngle=_currentFloor.maxFloorAngle-_currentFloor.baseRotateAngle,
                 _fromFloorHeight=this.currentFloor.y+this.fromFloorHeight;
-            if((Math.abs(this.yPosition)<=Math.abs(_fromFloorHeight))||(_currentFloor.floorAngle===0)){
-                this.node.y=this.yPosition;
-                this.node.x=this.xPosition;
-            }else{
-                this.yPosition= _fromFloorHeight;
-            }
+            //控制player横向移动
+            this.node.x=this.xPosition;
             //控制floor的最大旋转角度
             if((_currentFloor.floorAngle<_maxFloorAngle&&_currentFloor.floorAngle>-_maxFloorAngle)
             ||(_currentFloor.floorAngle*_currentFloor.rotateAngle<=0)){
                 this.currentFloor.runAction(cc.sequence(floorRotate,callback));
             }
-        }else{
-            var playerNode=this.node,
-                playerNodeY=playerNode.y,
-                playerNodeX=playerNode.x,
-                playerWidth=playerNode.width,
-                floorNode=this.game.floorArray[Math.round(playerNodeY)],
-                floorWidth=floorNode&&floorNode.width;
-            if(floorNode&&this.currentFloor!=floorNode&&(playerNodeX<=floorNode.x+floorWidth/2&&playerNodeX>=floorNode.x-floorWidth/2)){
-                this.currentFloor=floorNode;
-                this.isOnFloor=true;
-                playerNode.stopAllActions();
-                this.xPosition=playerNodeX;
-                this.yPosition=playerNodeY;
-                this.currentFloor.getComponent("floor").isPlayerOn=true;
-            }
+        }else{//player自由下落时
+            
         }
     },
 
@@ -150,18 +154,19 @@ cc.Class({
     },
 
     playerFall:function (distance){
-        this.isOnFloor=false;
-        this.currentFloor.getComponent("floor").isPlayerOn=false;
+        this.setPlayerOnFloorState(false);
         var landX=this.currentFloor.rotation>=0?this.speed*(this.speedLevel+distance*this.jumpLevel):-this.speed*(this.speedLevel+distance*this.jumpLevel),
-            scene=this.node.getParent(),
-            landY=(scene.y-scene.height)-this.yPosition,
-            fallXMove=cc.moveBy(this.fallDuration,cc.p(landX,0)).easing(cc.easeCircleActionOut()),
-            fallYMove=cc.moveBy(this.fallDuration,cc.p(0,landY)).easing(cc.easeCircleActionIn());
-        //this.node.runAction(cc.spawn(fallXMove,fallYMove));
+            fallXMove=cc.moveBy(this.fallDuration,cc.p(landX,0)).easing(cc.easeCircleActionOut());
+        this.node.runAction(fallXMove);
     },
 
     floorRest:function (){
         var floorRestRoration=cc.rotateTo(1,0);
         this.currentFloor.runAction(floorRestRoration);
     },
+
+    playerFailed:function (){
+        //转换到游戏结束场景
+        cc.director.loadScene("gameOver");
+    }
 });

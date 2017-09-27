@@ -11,17 +11,25 @@ cc.Class({
         baseRotateDuration:0.1,
         rotateDuration:0.03,
         isPlayerOn:false,
-        floorSpeed:5,
+        floorSpeed:1,
     },
 
     // use this for initialization
     onLoad: function () {
-        //初始化上升速度
-        
+       
+    },
+
+    //设置floor上升速度
+    setFloorRiseSpeed:function (speed){
+        this.floorSpeed=speed;
+    },
+
+    floorRise:function (){
+        this.node.y+=this.floorSpeed;
     },
 
     // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    update: function (dt) {
+        this.floorRise();
+    },
 });

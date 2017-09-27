@@ -2,13 +2,15 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        floorGap:80,
+        floorGap:100,
         //最底下的floor的Y坐标
-        bottomFloorY:237,
+        bottomFloorY:0,
         //最底下的floor的X坐标
         bottomFloorX:0,
         //floor数组
         floorArray:[],
+        //所得分数
+        score:0,
         otherFloor: {
             default: null,
             type: cc.Prefab
@@ -20,15 +22,27 @@ cc.Class({
         player: {
             default: null,
             type: cc.Node
+        },
+        counters:{
+            default: null,
+            type: cc.Label
         },        
     },
 
     // use this for initialization
     onLoad: function () {
+        //预加载游戏结束场景
+        cc.director.preloadScene("gameOver", function () {
+            cc.log("Next scene preloaded");
+        });
         //开启物理系统
         cc.director.getPhysicsManager().enabled = true;
         //开启碰撞系统
-        cc.director.getCollisionManager().enabled=true;
+        var manager= cc.director.getCollisionManager();
+        manager.enabled=true;
+        //初始化当前最底层的floor坐标
+        this.bottomFloorX=this.initFloor.x;
+        this.bottomFloorY=this.initFloor.y;
         this.player.getComponent("player").game=this;
         this.createNewFloor();
     },
@@ -39,10 +53,9 @@ cc.Class({
             this.node.addChild(newFloor);
             this.setWidth(newFloor);
             newFloor.setPosition(this.setPosition(newFloor));
-            for(var i=0;i<10;i++){
-                var index=Math.round(this.bottomFloorY)+i;
-                this.floorArray[index]=newFloor;
-            }
+            //设置新的floor的tag，用于之后计算得分
+            newFloor.tag=this.floorArray.length+1;
+            this.floorArray.push(newFloor);
         }
     },
 
@@ -65,10 +78,16 @@ cc.Class({
 
     setWidth:function (newFloor){
         newFloor.width=this.initFloor.width*(Math.abs(Math.random()-0.5)+0.8);
-    }
+    },
 
     // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    update: function (dt) {
+        this.bottomFloorY=this.floorArray[this.floorArray.length-1].y;
+        this.createNewFloor();
+    },
 
-    // },
+    setScore:function (_score){
+        this.score=_score;
+        this.counters.string="Score："+this.score.toString();
+    },
 });
