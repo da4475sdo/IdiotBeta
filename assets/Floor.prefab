@@ -59,8 +59,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -386.1,
-      "y": 214.7
+      "x": -305,
+      "y": 65
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -112,7 +112,9 @@
     "baseRotateDuration": 0.1,
     "rotateDuration": 0.03,
     "isPlayerOn": false,
-    "floorSpeed": 1
+    "floorSpeed": 1,
+    "floorBaseSpeed": 1,
+    "speedAddRate": 1
   },
   {
     "__type__": "cc.RigidBody",
@@ -168,7 +170,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "b1256920-848c-4efc-ab6c-40dd1a555dd0"
     },
     "fileId": "6a9c6ru7PlLK7OEZYPDWIwi",
     "sync": false

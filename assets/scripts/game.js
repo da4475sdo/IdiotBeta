@@ -7,8 +7,13 @@ cc.Class({
         bottomFloorY:0,
         //最底下的floor的X坐标
         bottomFloorX:0,
-        //floor数组
-        floorArray:[],
+        //当前屏幕最底层的floor
+        bottomFloor:{
+            default: null,
+            type: cc.Node
+        },
+        //层数
+        floorCount:1,
         //所得分数
         score:0,
         otherFloor: {
@@ -51,11 +56,13 @@ cc.Class({
         while(this.bottomFloorY>this.node.y-this.node.height){
             var newFloor = cc.instantiate(this.otherFloor);
             this.node.addChild(newFloor);
+            newFloor.getComponent("floor").game=this;
             this.setWidth(newFloor);
             newFloor.setPosition(this.setPosition(newFloor));
+            this.bottomFloor=newFloor;
             //设置新的floor的tag，用于之后计算得分
-            newFloor.tag=this.floorArray.length+1;
-            this.floorArray.push(newFloor);
+            newFloor.tag=this.floorCount;
+            this.floorCount++;
         }
     },
 
@@ -82,7 +89,7 @@ cc.Class({
 
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
-        this.bottomFloorY=this.floorArray[this.floorArray.length-1].y;
+        this.bottomFloorY=this.bottomFloor.y;
         this.createNewFloor();
     },
 

@@ -17,7 +17,12 @@ cc.Class({
         moveYDuration:0.2,
         //player下落的时长
         fallDuration:1,
-        once:true,
+        //0:正常;1:混乱;2:狂暴
+        status:0,
+        //状态最小持续时间
+        minStatusTime:5,
+        //状态最大持续时间
+        maxStatusTime:10,
          // player node 当前所在的floor node
         currentFloor: {
             default: null,
@@ -34,6 +39,7 @@ cc.Class({
         //绑定重力感应事件
         cc.inputManager.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
+        this.schedule(this.playerStatusChange,0.5,cc.macro.REPEAT_FOREVER);
     },
 
     onDeviceMotionEvent:function (event){
@@ -68,8 +74,9 @@ cc.Class({
             //同步player X坐标
             this.xPosition=this.node.x;
             this.setPlayerOnFloorState(true);
+            var score=otherColliderNode.tag;
             //设置游戏得分
-            this.game.setScore(otherColliderNode.tag);
+            this.game.setScore(score);
         }
     },
 
@@ -168,5 +175,60 @@ cc.Class({
     playerFailed:function (){
         //转换到游戏结束场景
         cc.director.loadScene("gameOver");
-    }
+    },
+
+    playerStatusChange:function (){
+        var randomNum=Math.random()*10;
+        if(this.status===0&&randomNum<=1){
+            this.status=randomNum<=0.5?1:2;
+            this.statusControl(this.status);
+        }
+    },
+
+    statusControl:function (status){
+        var statusNode=this.node.getChildByName("Status"),
+            statusNodeSprite=statusNode.getComponent(cc.Sprite),
+            statusTime=(this.maxStatusTime-this.minStatusTime)*Math.random()+this.minStatusTime;
+        //显示状态节点
+        statusNode.active=true;
+        // statusNode.opacity=255;
+        switch(status){
+            case 1:this.statusChaos(statusNode,statusNodeSprite);break;
+            case 2:this.statusRage(statusNode,statusNodeSprite);break;
+        };
+        //在状态持续时间结束后，恢复player的正常状态
+        this.scheduleOnce(function() {
+            this.status=0;
+            //隐藏状态节点
+            statusNode.active=false;
+        },parseInt(statusTime));
+    },
+
+    //混乱状态，人物的移动方向和控制方向相反
+    statusChaos:function (statusNode,statusNodeSprite){
+        this.status=1;
+        this.loadImage("chaos",function (_spriteFrame){
+            statusNode.setContentSize(cc.size(23, 45));
+            statusNodeSprite.spriteFrame=_spriteFrame;
+        });
+        this.baseSpeedLevel=-Math.abs(this.baseSpeedLevel);
+    },
+
+    //狂暴状态，人物的移动速度加快
+    statusRage:function (statusNode,statusNodeSprite){
+        this.status=2;
+        this.loadImage("rage",function (_spriteFrame){
+            statusNode.setContentSize(cc.size(30, 30));
+            statusNodeSprite.spriteFrame=_spriteFrame;
+        });
+        this.baseSpeedLevel=Math.abs(this.baseSpeedLevel)*2;
+    },
+    
+    //读取图片，根路径为resource文件夹
+    loadImage:function (filePath,callback){
+        var url = filePath;
+        cc.loader.loadRes(url, cc.SpriteFrame, function (err, _spriteFrame) {
+            callback(_spriteFrame);
+        });
+    },
 });
