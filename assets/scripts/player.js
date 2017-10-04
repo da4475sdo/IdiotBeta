@@ -162,7 +162,7 @@ cc.Class({
 
     playerFall:function (distance){
         this.setPlayerOnFloorState(false);
-        var landX=this.currentFloor.rotation>=0?this.speed*(this.speedLevel+distance*this.jumpLevel):-this.speed*(this.speedLevel+distance*this.jumpLevel),
+        var landX=this.currentFloor.rotation>=0?Math.abs(this.speed)*distance*this.jumpLevel:-Math.abs(this.speed)*distance*this.jumpLevel,
             fallXMove=cc.moveBy(this.fallDuration,cc.p(landX,0)).easing(cc.easeCircleActionOut());
         this.node.runAction(fallXMove);
     },
@@ -191,17 +191,25 @@ cc.Class({
             statusTime=(this.maxStatusTime-this.minStatusTime)*Math.random()+this.minStatusTime;
         //显示状态节点
         statusNode.active=true;
-        // statusNode.opacity=255;
         switch(status){
+            case 0:this.statusNormal(statusNode);break;
             case 1:this.statusChaos(statusNode,statusNodeSprite);break;
             case 2:this.statusRage(statusNode,statusNodeSprite);break;
         };
         //在状态持续时间结束后，恢复player的正常状态
-        this.scheduleOnce(function() {
-            this.status=0;
-            //隐藏状态节点
-            statusNode.active=false;
+        this.scheduleOnce(function (){
+            this.statusNormal(statusNode);
         },parseInt(statusTime));
+    },
+
+    //正常状态
+    statusNormal:function (statusNode){
+        this.status=0;
+        //隐藏状态节点
+        statusNode.active=false;
+        //初始化player状态
+        this.baseSpeedLevel=1;
+        this.speed=Math.abs(this.speed);
     },
 
     //混乱状态，人物的移动方向和控制方向相反
@@ -211,7 +219,7 @@ cc.Class({
             statusNode.setContentSize(cc.size(23, 45));
             statusNodeSprite.spriteFrame=_spriteFrame;
         });
-        this.baseSpeedLevel=-Math.abs(this.baseSpeedLevel);
+        this.speed=-this.speed;
     },
 
     //狂暴状态，人物的移动速度加快
