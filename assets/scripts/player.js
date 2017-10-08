@@ -139,10 +139,9 @@ cc.Class({
         //player在floor上时
         if(this.isOnFloor){
             var _currentFloor=this.currentFloor.getComponent('floor'),
-                floorRotate=new cc.RotateBy(_currentFloor.rotateDuration, _currentFloor.rotateAngle),
+                floorRotate=cc.rotateBy(_currentFloor.rotateDuration, _currentFloor.rotateAngle),
                 callback = cc.callFunc(this.getFloorAngle, this,_currentFloor),
-                _maxFloorAngle=_currentFloor.maxFloorAngle-_currentFloor.baseRotateAngle,
-                _fromFloorHeight=this.currentFloor.y+this.fromFloorHeight;
+                _maxFloorAngle=_currentFloor.maxFloorAngle-_currentFloor.baseRotateAngle;
             //控制player横向移动
             this.node.x=this.xPosition;
             //控制floor的最大旋转角度
@@ -163,7 +162,8 @@ cc.Class({
     playerFall:function (distance){
         this.setPlayerOnFloorState(false);
         var landX=this.currentFloor.rotation>=0?Math.abs(this.speed)*distance*this.jumpLevel:-Math.abs(this.speed)*distance*this.jumpLevel,
-            fallXMove=cc.moveBy(this.fallDuration,cc.p(landX,0)).easing(cc.easeCircleActionOut());
+            jumpHeight=distance/10*this.jumpLevel*3,
+            fallXMove=cc.jumpBy(this.fallDuration,cc.p(landX,0),jumpHeight,1).easing(cc.easeCircleActionOut());
         this.node.runAction(fallXMove);
     },
 

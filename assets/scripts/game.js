@@ -2,7 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        floorGap:100,
+        floorGap:200,
         //最底下的floor的Y坐标
         bottomFloorY:0,
         //最底下的floor的X坐标
@@ -67,16 +67,24 @@ cc.Class({
     },
 
     setPosition:function (newFloor){
-        //控制floor的随机宽度在initFloor宽度的0.5到1倍
         var floorWidth=newFloor.width,
-            minX=-(this.node.width/2)+floorWidth,
-            maxX=this.node.width/2-floorWidth,
+            minX=-(this.node.width/2)+floorWidth*1.5,
+            maxX=this.node.width/2-floorWidth*1.5,
             floorX=0,
-            floorY=this.bottomFloorY-(Math.random()+1)*this.floorGap;
-        if(this.bottomFloorX>=0){
-            floorX=Math.random()*minX;
-        }else{
-            floorX=Math.random()*maxX;
+            floorY=this.bottomFloorY-(Math.random()+1.5)*this.floorGap,
+            isPositionCError=true;
+        while(isPositionCError){
+            if(this.bottomFloorX>=0){
+                floorX=Math.random()*minX;
+            }else{
+                floorX=Math.random()*maxX;
+            }
+            //计算和上一个floor的水平位置差距,不满足则重新计算新floor位置
+            if(Math.abs(floorX-this.bottomFloorX)>=floorWidth/2){
+                isPositionCError=false;
+            }else{
+                isPositionCError=true;
+            }
         }
         this.bottomFloorX=floorX;
         this.bottomFloorY=floorY;
@@ -84,6 +92,7 @@ cc.Class({
     },
 
     setWidth:function (newFloor){
+        //控制floor的随机宽度在initFloor宽度的0.5到1倍
         newFloor.width=this.initFloor.width*(Math.abs(Math.random()-0.5)+0.8);
     },
 
