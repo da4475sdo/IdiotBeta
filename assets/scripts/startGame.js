@@ -23,6 +23,8 @@ cc.Class({
     },
 
     startGame:function (){
+        //停止所有音效
+        cc.audioEngine.stopAll();
         cc.director.loadScene("main");
     },
     // called every frame, uncomment this function to activate update callback

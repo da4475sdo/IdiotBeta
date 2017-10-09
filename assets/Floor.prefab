@@ -107,7 +107,7 @@
     "yFloorPosition": 0,
     "floorAngle": 0,
     "maxFloorAngle": 30,
-    "baseRotateAngle": 12,
+    "baseRotateAngle": 15,
     "rotateAngle": 0,
     "baseRotateDuration": 0.05,
     "rotateDuration": 0.05,

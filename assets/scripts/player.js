@@ -27,7 +27,32 @@ cc.Class({
         currentFloor: {
             default: null,
             type: cc.Node
-        },    
+        },
+        //跳跃音效 
+        jumpAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },
+        //着陆音效 
+        landAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },
+        //混乱音效 
+        chaosAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },
+        //狂暴音效 
+        rageAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },
+        //死亡音效 
+        deadAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },   
     },
 
     // use this for initialization
@@ -54,7 +79,7 @@ cc.Class({
             if((playerToFloorCenterDis<(this.currentFloor.width+this.node.width)/2)){
                 this.groupMove(distance);
             }else{
-                this.playerFall(Math.abs(distance));
+                this.playerFall(distance);
                 this.floorRest();
             }
         }
@@ -65,6 +90,7 @@ cc.Class({
         var otherColliderNode=otherCollider.node;
         //当player触碰到上下边界时，游戏结束
         if(otherColliderNode.group==="boundary"){
+            this.playAudio(this,this.deadAudioSource,false);
             this.playerFailed();
             return;
         }
@@ -77,6 +103,8 @@ cc.Class({
             var score=otherColliderNode.tag;
             //设置游戏得分
             this.game.setScore(score);
+            //播放落地音效
+            this.playAudio(this,this.landAudioSource,false);
         }
     },
 
@@ -118,12 +146,10 @@ cc.Class({
             floorWidth=this.currentFloor.width,
             _currentFloor=this.currentFloor.getComponent('floor');
         //当player在floor的左半部分时，旋转角度为负
-        if(distanceFromCenter<-this.stopRange){
+        if(distanceFromCenter<=-this.stopRange){
             _currentFloor.rotateAngle=-_currentFloor.baseRotateAngle;
-        }else if(distanceFromCenter>this.stopRange){
-            _currentFloor.rotateAngle=Math.abs(_currentFloor.baseRotateAngle);
         }else{
-            _currentFloor.rotateAngle=0;
+            _currentFloor.rotateAngle=Math.abs(_currentFloor.baseRotateAngle);
         }
         //当floor上的player下降时
         if(_currentFloor.floorAngle>0){
@@ -161,10 +187,12 @@ cc.Class({
 
     playerFall:function (distance){
         this.setPlayerOnFloorState(false);
-        var landX=this.currentFloor.rotation>=0?Math.abs(this.speed)*distance*this.jumpLevel:-Math.abs(this.speed)*distance*this.jumpLevel,
-            jumpHeight=distance/10*this.jumpLevel*3,
+        var playerSpeed=Math.abs(this.speed),
+            landX=playerSpeed*distance*this.jumpLevel,
+            jumpHeight=this.setJumpHeight(Math.abs(distance)),
+            callback = cc.callFunc(this.playAudio, this,this.jumpAudioSource,false),
             fallXMove=cc.jumpBy(this.fallDuration,cc.p(landX,0),jumpHeight,1).easing(cc.easeCircleActionOut());
-        this.node.runAction(fallXMove);
+        this.node.runAction(cc.sequence(callback,fallXMove));
     },
 
     floorRest:function (){
@@ -175,6 +203,8 @@ cc.Class({
     playerFailed:function (){
         //转换到游戏结束场景
         cc.director.loadScene("gameOver");
+        //关闭背景音乐
+        cc.audioEngine.stop(this.BGM);
     },
 
     playerStatusChange:function (){
@@ -214,22 +244,44 @@ cc.Class({
 
     //混乱状态，人物的移动方向和控制方向相反
     statusChaos:function (statusNode,statusNodeSprite){
-        this.status=1;
-        this.loadImage("chaos",function (_spriteFrame){
-            statusNode.setContentSize(cc.size(23, 45));
+        var that=this;
+        that.status=1;
+        that.loadImage("chaos",function (_spriteFrame){
+            statusNode.setContentSize(cc.size(47.7, 84));
             statusNodeSprite.spriteFrame=_spriteFrame;
+            //播放混乱音效
+            that.playAudio(that,that.chaosAudioSource,false);
         });
-        this.speed=-this.speed;
+        that.speed=-that.speed;
     },
 
     //狂暴状态，人物的移动速度加快
     statusRage:function (statusNode,statusNodeSprite){
-        this.status=2;
-        this.loadImage("rage",function (_spriteFrame){
-            statusNode.setContentSize(cc.size(30, 30));
+        var that=this;
+        that.status=2;
+        that.loadImage("rage",function (_spriteFrame){
+            statusNode.setContentSize(cc.size(62.9, 61.2));
             statusNodeSprite.spriteFrame=_spriteFrame;
+            //播放狂暴音效
+            that.playAudio(that,that.rageAudioSource,false);
         });
-        this.baseSpeedLevel=Math.abs(this.baseSpeedLevel)*2;
+        that.baseSpeedLevel=Math.abs(that.baseSpeedLevel)*2;
+    },
+
+    setJumpHeight:function (distance){
+        var jumpHeight=0;
+        if(distance<=20){
+            jumpHeight=20;
+        }else if(distance<=30){
+            jumpHeight=50
+        }else{
+            jumpHeight=70;
+        }
+        return jumpHeight;
+    },
+
+    playAudio:function (target,audioSource,isLoop){
+        cc.audioEngine.play(audioSource, isLoop, 1);
     },
     
     //读取图片，根路径为resource文件夹

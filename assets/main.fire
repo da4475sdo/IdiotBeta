@@ -258,8 +258,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 23,
-      "height": 45
+      "width": 62.9,
+      "height": 61.2
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -267,8 +267,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -22,
-      "y": 112
+      "x": -39,
+      "y": 120.1
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -286,7 +286,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "0fbd9020-bcfe-41a5-851b-f41318a77e34"
+      "__uuid__": "b1634b0c-1e64-4a15-9b73-67a1ef2a0808"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -353,6 +353,21 @@
     "maxStatusTime": 10,
     "currentFloor": {
       "__id__": 3
+    },
+    "jumpAudioSource": {
+      "__uuid__": "fbd80cd0-d7e5-4b2c-ac13-af4d8752b8a9"
+    },
+    "landAudioSource": {
+      "__uuid__": "e4963d8b-4a52-426e-aee8-af97c66a9595"
+    },
+    "chaosAudioSource": {
+      "__uuid__": "9ca7c153-13e7-4b92-aa4f-8e9211636755"
+    },
+    "rageAudioSource": {
+      "__uuid__": "d897dd34-f24c-48e5-9dd2-e3ffe6dda518"
+    },
+    "deadAudioSource": {
+      "__uuid__": "b2ed495c-3de5-43a3-8e8f-098af8af1532"
     }
   },
   {
@@ -800,6 +815,9 @@
     },
     "counters": {
       "__id__": 22
+    },
+    "backgroundAudioSource": {
+      "__uuid__": "d76c7e9e-567e-4aac-8351-ee82b498c488"
     }
   },
   {

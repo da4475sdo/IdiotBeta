@@ -31,11 +31,18 @@ cc.Class({
         counters:{
             default: null,
             type: cc.Label
+        },
+        //死亡音效 
+        backgroundAudioSource: {
+            url: cc.AudioClip,
+            default: null
         },        
     },
 
     // use this for initialization
     onLoad: function () {
+        //播放背景音乐
+        var BGM = cc.audioEngine.play(this.backgroundAudioSource, true, 1);
         //预加载游戏结束场景
         cc.director.preloadScene("gameOver", function () {
             cc.log("Next scene preloaded");
@@ -49,6 +56,7 @@ cc.Class({
         this.bottomFloorX=this.initFloor.x;
         this.bottomFloorY=this.initFloor.y;
         this.player.getComponent("player").game=this;
+        this.player.getComponent("player").BGM=BGM;
         this.createNewFloor();
     },
 
