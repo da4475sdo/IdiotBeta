@@ -16,7 +16,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
+        
     },
 
     reutnMainMenu:function (){

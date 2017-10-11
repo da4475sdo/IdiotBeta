@@ -67,6 +67,9 @@ cc.Class({
             newFloor.getComponent("floor").game=this;
             this.setWidth(newFloor);
             newFloor.setPosition(this.setPosition(newFloor));
+            //手残党模式
+            // this.setWidthSimple(newFloor);
+            // newFloor.setPosition(this.setPositionSimple(newFloor));
             this.bottomFloor=newFloor;
             //设置新的floor的tag，用于之后计算得分
             newFloor.tag=this.floorCount;
@@ -100,8 +103,30 @@ cc.Class({
     },
 
     setWidth:function (newFloor){
-        //控制floor的随机宽度在initFloor宽度的0.5到1倍
-        newFloor.width=this.initFloor.width*(Math.abs(Math.random()-0.5)+0.8);
+        //控制floor的随机宽度在initFloor宽度的1到1.5倍
+        var floorWidth=this.initFloor.width*(Math.abs(Math.random()-0.5)+1),
+            box=newFloor.getComponent(cc.PhysicsBoxCollider);
+        newFloor.width=floorWidth;
+        box.size=cc.size(floorWidth,1);
+        box.apply();
+    },
+
+    setPositionSimple:function (newFloor){
+        var floorWidth=newFloor.width, 
+            floorX=0,
+            floorY=this.bottomFloorY-(Math.random()+1.5)*this.floorGap;
+        this.bottomFloorX>=0?floorX=-floorWidth/2:floorX=floorWidth/2;
+        this.bottomFloorX=floorX;
+        this.bottomFloorY=floorY;
+        return cc.p(floorX,floorY);
+    },
+
+    setWidthSimple:function (newFloor){
+        var floorWidth=this.node.width/2,
+            box=newFloor.getComponent(cc.PhysicsBoxCollider);
+        newFloor.width=floorWidth;
+        box.size=cc.size(floorWidth,1);
+        box.apply();
     },
 
     // called every frame, uncomment this function to activate update callback

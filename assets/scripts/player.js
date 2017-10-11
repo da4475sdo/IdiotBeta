@@ -1,3 +1,4 @@
+var Global=require("global");
 cc.Class({
     extends: cc.Component,
 
@@ -23,6 +24,8 @@ cc.Class({
         minStatusTime:5,
         //状态最大持续时间
         maxStatusTime:10,
+        //跳跃的终点
+        jumpLandX:0,
          // player node 当前所在的floor node
         currentFloor: {
             default: null,
@@ -64,7 +67,7 @@ cc.Class({
         //绑定重力感应事件
         cc.inputManager.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
-        this.schedule(this.playerStatusChange,0.5,cc.macro.REPEAT_FOREVER);
+        this.schedule(this.playerStatusChange,1,cc.macro.REPEAT_FOREVER);
     },
 
     onDeviceMotionEvent:function (event){
@@ -176,7 +179,7 @@ cc.Class({
                 this.currentFloor.runAction(cc.sequence(floorRotate,callback));
             }
         }else{//player自由下落时
-            
+
         }
     },
 
@@ -191,7 +194,8 @@ cc.Class({
             landX=playerSpeed*distance*this.jumpLevel,
             jumpHeight=this.setJumpHeight(Math.abs(distance)),
             callback = cc.callFunc(this.playAudio, this,this.jumpAudioSource,false),
-            fallXMove=cc.jumpBy(this.fallDuration,cc.p(landX,0),jumpHeight,1).easing(cc.easeCircleActionOut());
+            fallXMove=cc.jumpBy(this.fallDuration,cc.p(landX,0),jumpHeight,1).easing(cc.easeOut(3.0));
+        this.jumpLandX=this.xPosition+landX;
         this.node.runAction(cc.sequence(callback,fallXMove));
     },
 
@@ -201,6 +205,8 @@ cc.Class({
     },
 
     playerFailed:function (){
+        //记录最后得分
+        Global.score=this.game.score;
         //转换到游戏结束场景
         cc.director.loadScene("gameOver");
         //关闭背景音乐
@@ -219,8 +225,6 @@ cc.Class({
         var statusNode=this.node.getChildByName("Status"),
             statusNodeSprite=statusNode.getComponent(cc.Sprite),
             statusTime=(this.maxStatusTime-this.minStatusTime)*Math.random()+this.minStatusTime;
-        //显示状态节点
-        statusNode.active=true;
         switch(status){
             case 0:this.statusNormal(statusNode);break;
             case 1:this.statusChaos(statusNode,statusNodeSprite);break;
@@ -249,6 +253,8 @@ cc.Class({
         that.loadImage("chaos",function (_spriteFrame){
             statusNode.setContentSize(cc.size(47.7, 84));
             statusNodeSprite.spriteFrame=_spriteFrame;
+            //显示状态节点
+            statusNode.active=true;
             //播放混乱音效
             that.playAudio(that,that.chaosAudioSource,false);
         });
@@ -262,20 +268,22 @@ cc.Class({
         that.loadImage("rage",function (_spriteFrame){
             statusNode.setContentSize(cc.size(62.9, 61.2));
             statusNodeSprite.spriteFrame=_spriteFrame;
+            //显示状态节点
+            statusNode.active=true;
             //播放狂暴音效
             that.playAudio(that,that.rageAudioSource,false);
         });
-        that.baseSpeedLevel=Math.abs(that.baseSpeedLevel)*2;
+        that.baseSpeedLevel=Math.abs(that.baseSpeedLevel)*5;
     },
 
     setJumpHeight:function (distance){
         var jumpHeight=0;
-        if(distance<=20){
+        if(distance<=10){
             jumpHeight=20;
-        }else if(distance<=30){
-            jumpHeight=50
+        }else if(distance<=20){
+            jumpHeight=80
         }else{
-            jumpHeight=70;
+            jumpHeight=100;
         }
         return jumpHeight;
     },

@@ -96,27 +96,6 @@
     "_atlas": null
   },
   {
-    "__type__": "d00f9JwtYlFD4fK42Es2sYv",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "xFloorPosition": 0,
-    "yFloorPosition": 0,
-    "floorAngle": 0,
-    "maxFloorAngle": 30,
-    "baseRotateAngle": 15,
-    "rotateAngle": 0,
-    "baseRotateDuration": 0.05,
-    "rotateDuration": 0.05,
-    "isPlayerOn": false,
-    "floorSpeed": 1,
-    "floorBaseSpeed": 1,
-    "speedAddRate": 1
-  },
-  {
     "__type__": "cc.RigidBody",
     "_name": "",
     "_objFlags": 0,
@@ -163,6 +142,27 @@
       "width": 178,
       "height": 1
     }
+  },
+  {
+    "__type__": "d00f9JwtYlFD4fK42Es2sYv",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "xFloorPosition": 0,
+    "yFloorPosition": 0,
+    "floorAngle": 0,
+    "maxFloorAngle": 30,
+    "baseRotateAngle": 15,
+    "rotateAngle": 0,
+    "baseRotateDuration": 0.1,
+    "rotateDuration": 0.03,
+    "isPlayerOn": false,
+    "floorSpeed": 1,
+    "floorBaseSpeed": 1,
+    "speedAddRate": 1
   },
   {
     "__type__": "cc.PrefabInfo",

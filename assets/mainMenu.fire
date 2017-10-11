@@ -938,6 +938,9 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true
+    "_enabled": true,
+    "BGMAudioSource": {
+      "__uuid__": "621370b7-97ef-44fd-bb9e-89419f84b2f3"
+    }
   }
 ]

@@ -2,7 +2,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        
+        //死亡音效 
+        BGMAudioSource: {
+            url: cc.AudioClip,
+            default: null
+        },
     },
 
     // use this for initialization
@@ -12,6 +16,8 @@ cc.Class({
         if(cc.sys.os == cc.sys.OS_ANDROID){
             cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.quitGame, this);
         }
+        //播放背景音乐
+        cc.audioEngine.play(this.BGMAudioSource, true, 1);
     },
 
     quitGame:function (){
