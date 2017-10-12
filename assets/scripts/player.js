@@ -1,4 +1,5 @@
 var Global=require("global");
+var floorRestAction=null;
 cc.Class({
     extends: cc.Component,
 
@@ -67,7 +68,8 @@ cc.Class({
         //绑定重力感应事件
         cc.inputManager.setAccelerometerEnabled(true);
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
-        this.schedule(this.playerStatusChange,1,cc.macro.REPEAT_FOREVER);
+        //在5-8秒内进行状态变化
+        this.startStatusCheck(cc.random0To1()*3+5);
     },
 
     onDeviceMotionEvent:function (event){
@@ -93,7 +95,6 @@ cc.Class({
         var otherColliderNode=otherCollider.node;
         //当player触碰到上下边界时，游戏结束
         if(otherColliderNode.group==="boundary"){
-            this.playAudio(this,this.deadAudioSource,false);
             this.playerFailed();
             return;
         }
@@ -108,6 +109,10 @@ cc.Class({
             this.game.setScore(score);
             //播放落地音效
             this.playAudio(this,this.landAudioSource,false);
+        }else{
+            //防止跳上同一块木板不动的情况
+            this.currentFloor.stopAction(floorRestAction);
+            this.setPlayerOnFloorState(true);
         }
     },
 
@@ -179,7 +184,17 @@ cc.Class({
                 this.currentFloor.runAction(cc.sequence(floorRotate,callback));
             }
         }else{//player自由下落时
-
+            var sceneWidth=this.game.node.width,
+                sceneHeight=this.game.node.height,
+                leftBound=-sceneWidth/2,
+                rightBound=sceneWidth/2,
+                bottomBound=-sceneHeight/2,
+                playerX=this.node.x,
+                playerY=this.node.y;
+            //避免player运动过快，物理碰撞系统无法检测问题
+            if(playerX<=leftBound||playerX>=rightBound||playerY<bottomBound){
+                this.playerFailed();
+            }
         }
     },
 
@@ -191,7 +206,8 @@ cc.Class({
     playerFall:function (distance){
         this.setPlayerOnFloorState(false);
         var playerSpeed=Math.abs(this.speed),
-            landX=playerSpeed*distance*this.jumpLevel,
+            _jumpLevel=this.jumpLevel+Math.abs(distance/3),
+            landX=playerSpeed*distance*_jumpLevel,
             jumpHeight=this.setJumpHeight(Math.abs(distance)),
             callback = cc.callFunc(this.playAudio, this,this.jumpAudioSource,false),
             fallXMove=cc.jumpBy(this.fallDuration,cc.p(landX,0),jumpHeight,1).easing(cc.easeOut(3.0));
@@ -200,11 +216,12 @@ cc.Class({
     },
 
     floorRest:function (){
-        var floorRestRoration=cc.rotateTo(1,0);
-        this.currentFloor.runAction(floorRestRoration);
+        floorRestAction=cc.rotateTo(0.5,0);
+        this.currentFloor.runAction(floorRestAction);
     },
 
     playerFailed:function (){
+        this.playAudio(this,this.deadAudioSource,false);
         //记录最后得分
         Global.score=this.game.score;
         //转换到游戏结束场景
@@ -213,10 +230,15 @@ cc.Class({
         cc.audioEngine.stop(this.BGM);
     },
 
+    //开启状态检测
+    startStatusCheck:function (_duration){
+        this.scheduleOnce(this.playerStatusChange,_duration);
+    },
+
     playerStatusChange:function (){
-        var randomNum=Math.random()*10;
-        if(this.status===0&&randomNum<=1){
-            this.status=randomNum<=0.5?1:2;
+        var randomNum=Math.random();
+        if(this.status===0){
+            this.status=randomNum<=0.7?1:2;
             this.statusControl(this.status);
         }
     },
@@ -244,6 +266,8 @@ cc.Class({
         //初始化player状态
         this.baseSpeedLevel=1;
         this.speed=Math.abs(this.speed);
+        //定时进行下一次状态变化
+        this.startStatusCheck(cc.random0To1()*5+10);
     },
 
     //混乱状态，人物的移动方向和控制方向相反
