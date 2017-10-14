@@ -19,6 +19,8 @@ cc.Class({
         moveYDuration:0.2,
         //player下落的时长
         fallDuration:1,
+        //是否开启状态系统
+        isStatusOn:true,
         //0:正常;1:混乱;2:狂暴
         status:0,
         //状态最小持续时间
@@ -184,16 +186,18 @@ cc.Class({
                 this.currentFloor.runAction(cc.sequence(floorRotate,callback));
             }
         }else{//player自由下落时
-            var sceneWidth=this.game.node.width,
+            if(this.game){
+                var sceneWidth=this.game.node.width,
                 sceneHeight=this.game.node.height,
                 leftBound=-sceneWidth/2,
                 rightBound=sceneWidth/2,
                 bottomBound=-sceneHeight/2,
                 playerX=this.node.x,
                 playerY=this.node.y;
-            //避免player运动过快，物理碰撞系统无法检测问题
-            if(playerX<=leftBound||playerX>=rightBound||playerY<bottomBound){
-                this.playerFailed();
+                //避免player运动过快，物理碰撞系统无法检测问题
+                if(playerX<=leftBound||playerX>=rightBound||playerY<bottomBound){
+                    this.playerFailed();
+                }
             }
         }
     },
@@ -237,7 +241,7 @@ cc.Class({
 
     playerStatusChange:function (){
         var randomNum=Math.random();
-        if(this.status===0){
+        if(this.isStatusOn&&this.status===0){
             this.status=randomNum<=0.7?1:2;
             this.statusControl(this.status);
         }

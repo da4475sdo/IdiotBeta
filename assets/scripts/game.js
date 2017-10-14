@@ -45,7 +45,7 @@ cc.Class({
         var BGM = cc.audioEngine.play(this.backgroundAudioSource, true, 1);
         //预加载游戏结束场景
         cc.director.preloadScene("gameOver", function () {
-            cc.log("Next scene preloaded");
+            cc.log("gameOver scene preloaded");
         });
         //开启物理系统
         cc.director.getPhysicsManager().enabled = true;

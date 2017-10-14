@@ -11,6 +11,10 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        //预加载游戏开始场景
+        cc.director.preloadScene("main", function () {
+            cc.log("Main scene preloaded");
+        });
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.quitGame, this);
         //绑定android返回键退出游戏事件
         if(cc.sys.os == cc.sys.OS_ANDROID){
