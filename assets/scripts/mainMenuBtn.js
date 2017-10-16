@@ -20,6 +20,8 @@ cc.Class({
     },
 
     reutnMainMenu:function (){
+        //停止所有音效
+        cc.audioEngine.stopAll();
         cc.director.loadScene("mainMenu");
     },
 

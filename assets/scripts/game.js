@@ -40,7 +40,7 @@ cc.Class({
     },
 
     // use this for initialization
-    onLoad: function () {
+    onLoad: function () {        
         //播放背景音乐
         var BGM = cc.audioEngine.play(this.backgroundAudioSource, true, 1);
         //预加载游戏结束场景

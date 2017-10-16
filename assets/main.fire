@@ -488,6 +488,7 @@
     "stopRange": 5,
     "moveYDuration": 0.2,
     "fallDuration": 1,
+    "isStatusOn": true,
     "status": 0,
     "minStatusTime": 5,
     "maxStatusTime": 10,

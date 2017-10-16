@@ -16,16 +16,17 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        //预加载游戏结束场景
-        cc.director.preloadScene("main", function () {
-            cc.log("Next scene preloaded");
-        });
     },
 
     startGame:function (){
+        var userData = cc.sys.localStorage.getItem('userData');
         //停止所有音效
         cc.audioEngine.stopAll();
-        cc.director.loadScene("main");
+        if(userData){
+            cc.director.loadScene("main");
+        }else{
+            cc.director.loadScene("tutorial");
+        }
     },
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

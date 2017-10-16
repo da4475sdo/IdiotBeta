@@ -108,12 +108,14 @@ cc.Class({
             this.setPlayerOnFloorState(true);
             var score=otherColliderNode.tag;
             //设置游戏得分
-            this.game.setScore(score);
+            this.game&&this.game.setScore(score);
             //播放落地音效
             this.playAudio(this,this.landAudioSource,false);
         }else{
             //防止跳上同一块木板不动的情况
-            this.currentFloor.stopAction(floorRestAction);
+            if(floorRestAction&&floorRestAction._instanceId){
+                this.currentFloor.stopAction(floorRestAction);
+            }
             this.setPlayerOnFloorState(true);
         }
     },
@@ -242,7 +244,7 @@ cc.Class({
     playerStatusChange:function (){
         var randomNum=Math.random();
         if(this.isStatusOn&&this.status===0){
-            this.status=randomNum<=0.7?1:2;
+            this.status=randomNum<=0.3?1:2;
             this.statusControl(this.status);
         }
     },

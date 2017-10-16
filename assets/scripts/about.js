@@ -16,13 +16,11 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        //预加载游戏结束场景
-        cc.director.preloadScene("about", function () {
-            cc.log("Next scene preloaded");
-        });
+        
     },
 
     toAbout:function (){
+        
         cc.director.loadScene("about");
     },
 

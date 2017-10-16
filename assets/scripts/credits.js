@@ -16,10 +16,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        //预加载游戏结束场景
-        cc.director.preloadScene("credits", function () {
-            cc.log("Next scene preloaded");
-        });
+        
     },
 
     toCredits:function (){

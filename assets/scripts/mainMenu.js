@@ -11,10 +11,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        //预加载游戏开始场景
-        cc.director.preloadScene("main", function () {
-            cc.log("Main scene preloaded");
-        });
+        this.preloadIndexScene();
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.quitGame, this);
         //绑定android返回键退出游戏事件
         if(cc.sys.os == cc.sys.OS_ANDROID){
@@ -26,7 +23,26 @@ cc.Class({
 
     quitGame:function (){
         cc.game.end();
-    }
+    },
+
+    preloadIndexScene:function (){
+        //预加载游戏开始场景
+        cc.director.preloadScene("main", function () {
+            cc.log("Main scene preloaded");
+        });
+        //预加载教程场景
+        cc.director.preloadScene("tutorial", function () {
+            cc.log("Tutorial scene preloaded");
+        });
+        //预加载最高分场景
+        cc.director.preloadScene("credits", function () {
+            cc.log("Credits scene preloaded");
+        });
+        //预加载游戏相关场景
+        cc.director.preloadScene("about", function () {
+            cc.log("About scene preloaded");
+        });
+    },
 
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

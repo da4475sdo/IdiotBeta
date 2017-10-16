@@ -17,8 +17,16 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        this.finalScore.string="FINAL SCORE:"+Global.score;
+        var score=Global.score;
+        this.finalScore.string="FINAL SCORE:"+score;
         this.scheduleOnce(this.playDeadAudio,1);
+        //判断是不是最高分，如果是则保存
+        console.log(cc.sys.localStorage.getItem('userData'));
+        var userData=JSON.parse(cc.sys.localStorage.getItem('userData'));
+        if(userData.highestScore<score){
+            userData.highestScore=score;
+            cc.sys.localStorage.setItem('userData',JSON.stringify(userData));
+        }
     },
 
     playDeadAudio:function (){

@@ -16,6 +16,10 @@ cc.Class({
             default:null,
             type:cc.Node,
         },
+        floorJump:{
+            default:null,
+            type:cc.Node,
+        },
         tutorialText:{
             default:null,
             type:cc.Label,
@@ -33,9 +37,8 @@ cc.Class({
         //开启碰撞系统
         var manager= cc.director.getCollisionManager();
         manager.enabled=true;
-        //绑定重力感应事件
+        //开启重力感应
         cc.inputManager.setAccelerometerEnabled(true);
-        cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
         //关闭player的状态系统
         this.player.getComponent("player").isStatusOn=false;
         //绑定屏幕点击事件
@@ -79,6 +82,11 @@ cc.Class({
             case 1:this.tutorialOne();break;
             case 2:this.tutorialTwo();break;
             case 3:this.tutorialThree();break;
+            case 4:this.tutorialFour();break;
+            case 5:this.tutorialFive();break;
+            case 6:this.tutorialSix();break;
+            case 7:this.tutorialSeven();break;
+            case 8:this.skipTutorial();break;
             default:this.tutorialOne();break;
         }
     },
@@ -91,6 +99,8 @@ cc.Class({
     },
 
     tutorialTwo:function (){
+        //绑定重力感应事件
+        cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
         var tutorialString="现在试着轻轻摇动你的手机来控制人物的左右移动";
         this.tutorialText.string=tutorialString;
         var textNode=this.tutorialText.node;
@@ -101,17 +111,64 @@ cc.Class({
     },
 
     tutorialThree:function (){
-        
+        this.initMotionNode();
+        //显示需要跳跃到的木板
+        this.floorJump.active=true;
+        //开启角色移动定时器
+        isPlayerStop=true;
+        this.tutorialText.string="快速地摇动你的手机来跳跃到另一块木板上";
+        var textNode=this.tutorialText.node;
+        textNode.setPosition(cc.v2(-this.node.x/7,-this.node.y/2));
+    },
+
+    tutorialFour:function (){
+        tutorialIndex=5;
+        this.initMotionNode();
+        this.floorJump.active=false;
+        this.player.getChildByName("Status").active=true;
+        this.tutorialText.node.setPosition(cc.v2(this.node.x/3,this.node.y/3));
+        this.tutorialText.string="接下来就是介绍角色的状态啦（点击屏幕继续）";
+    },
+
+    tutorialFive:function (){
+        var playerScript=this.player.getComponent("player");
+        //开启混乱状态
+        playerScript.statusControl(1);
+        this.tutorialText.string="混乱状态：角色将往控制方向相反移动（点击屏幕继续）";
+        tutorialIndex=6;
+    },
+
+    tutorialSix:function (){
+        var playerScript=this.player.getComponent("player");
+        //开启狂暴状态
+        playerScript.statusControl(2);
+        this.tutorialText.string="狂暴状态：角色将移动得更快（点击屏幕继续）";
+        tutorialIndex=7;
+    },
+
+    tutorialSeven:function (){
+        this.initMotionNode();
+        this.toggleMotionNode();
+        var textNode=this.tutorialText.node;
+        textNode.setPosition(cc.v2(8,9));
+        this.tutorialText.string="哇！完成全部教程了！赶快开始游戏吧（点击屏幕开始游戏）";
+        tutorialIndex=8;
     },
 
     initMotionNode:function (){
-        var playerComponent=this.player.getComponent("player");
-        playerComponent.xPosition=this.floor.x;
-        this.player.x=this.floor.x;
-        this.player.y=this.floor.y;
+        var playerComponent=this.player.getComponent("player"),
+            currentFloor=this.floor;
+        if(tutorialIndex!=4){
+            currentFloor=this.floor;
+        }else{
+            currentFloor=this.floorJump;
+        }
+        playerComponent.xPosition=currentFloor.x;
+        this.player.x=currentFloor.x;
+        this.player.y=currentFloor.y;
         playerComponent.speed=0;
-        this.floor.rotation=0;
-        this.floor.getComponent("floor").baseRotateAngle=0;
+        currentFloor.rotation=0;
+        currentFloor.getComponent("floor").baseRotateAngle=0;
     },
 
     toggleMotionNode:function (flag){
@@ -138,10 +195,36 @@ cc.Class({
                 tutorialTwoGoals.left=0;
                 tutorialTwoGoals.right=0;
             }
+        }else if(tutorialIndex===3){
+            var floorJumpWidth=this.floorJump.width,
+                floorJumpX=this.floorJump.x,
+                floorJumpY=this.floorJump.y,
+                playerX=this.player.x,
+                playerY=this.player.y;
+            if((floorJumpY)>playerY&&(floorJumpY-20)<playerY){
+                if(playerX<floorJumpX-floorJumpWidth/2){
+                    this.tutorialText.string="用力过轻了呢（点击屏幕重试）";
+                }else{
+                    this.tutorialText.string="用力过大了呢（点击屏幕重试）";
+                }
+            }
+            if(this.player.getComponent("player").currentFloor===this.floorJump&&playerX>floorJumpX-floorJumpWidth/2
+            &&playerY>=floorJumpY){
+                var textNode=this.tutorialText.node;
+                this.tutorialText.string="哇！完成了！恭喜你进入下一步（点击屏幕继续）";
+                tutorialIndex=4;
+                this.initMotionNode();                
+            }
         }
     },
 
     skipTutorial:function (){
+        //初始化用户数据
+        var userData={
+            highestScore:0,
+        };
+        //存入数据库
+        cc.sys.localStorage.setItem('userData', JSON.stringify(userData));
         //停止所有音效
         cc.audioEngine.stopAll();
         cc.director.loadScene("main");
