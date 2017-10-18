@@ -1,3 +1,4 @@
+var Global=require("global");
 cc.Class({
     extends: cc.Component,
 
@@ -24,6 +25,7 @@ cc.Class({
         cc.audioEngine.stopAll();
         if(userData){
             cc.director.loadScene("main");
+            Global.notFirst=true;
         }else{
             cc.director.loadScene("tutorial");
         }

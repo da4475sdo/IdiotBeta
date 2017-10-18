@@ -279,13 +279,13 @@
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 3,
-      "y": 0
+      "x": 2,
+      "y": 1
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 187,
-      "height": 1
+      "width": 170,
+      "height": 5
     }
   },
   {
@@ -358,7 +358,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -310,
-      "y": 70
+      "y": 67
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1204,6 +1204,7 @@
       "__id__": 2
     },
     "_enabled": true,
+    "areaWidth": 960,
     "floorGap": 120,
     "bottomFloorY": 237,
     "bottomFloorX": 0,

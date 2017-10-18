@@ -1,7 +1,9 @@
+var floorPositionArray=[];
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        areaWidth:960,
         floorGap:200,
         //最底下的floor的Y坐标
         bottomFloorY:0,
@@ -79,32 +81,67 @@ cc.Class({
 
     setPosition:function (newFloor){
         var floorWidth=newFloor.width,
-            minX=-(this.node.width/2)+floorWidth*1.5,
-            maxX=this.node.width/2-floorWidth*1.5,
+            minX=-(this.areaWidth/2)+floorWidth,
+            maxX=this.areaWidth/2-floorWidth,
             floorX=0,
             floorY=this.bottomFloorY-(Math.random()+1.5)*this.floorGap,
-            isPositionCError=true;
-        while(isPositionCError){
-            if(this.bottomFloorX>=0){
-                floorX=Math.random()*minX;
+            isPositionCError=true,
+            index=0,
+            floorArrayLength=floorPositionArray.length;
+        if(floorArrayLength>1){
+            var preSecondIndex=floorPositionArray[floorArrayLength-2],
+                preOneIndex=floorPositionArray[floorArrayLength-1],
+                preIndexes=preOneIndex+preSecondIndex;
+            switch(preIndexes){
+                case -3:preOneIndex<preSecondIndex?(cc.randomMinus1To1()>=0?index=0:index=1)
+                         :(cc.randomMinus1To1()>=0?index=1:index=2);break;
+                case -2:cc.randomMinus1To1()>=0?index=1:index=2;break;
+                case -1:if(preOneIndex===0||preSecondIndex===0){
+                            cc.randomMinus1To1()>=0?index=1:index=2;
+                        }else{
+                            index=this.getReversePosition(preOneIndex);
+                        }break;
+                case 0:index=this.getReversePosition(preOneIndex);break;
+                case 1:if(preOneIndex===0||preSecondIndex===0){
+                            cc.randomMinus1To1()>=0?index=-1:index=-2;
+                       }else{
+                           index=this.getReversePosition(preOneIndex);
+                       }break;
+                case 2:cc.randomMinus1To1()>=0?index=-1:index=-2;break;
+                case 3:preOneIndex>preSecondIndex?(cc.randomMinus1To1()>=0?index=0:index=-1)
+                        :(cc.randomMinus1To1()>=0?index=-1:index=-2);break;
+            };
+        }else{
+            if(floorArrayLength===0){
+                index=2;
             }else{
-                floorX=Math.random()*maxX;
-            }
-            //计算和上一个floor的水平位置差距,不满足则重新计算新floor位置
-            if(Math.abs(floorX-this.bottomFloorX)>=floorWidth/2){
-                isPositionCError=false;
-            }else{
-                isPositionCError=true;
+                cc.randomMinus1To1()>=0?index=-1:index=-2;
             }
         }
+        switch(index){
+            case -1:floorX=minX;break;
+            case -2:floorX=minX/2;break;
+            case 0:floorX=0;break;
+            case 1:floorX=maxX/2;break;
+            case 2:floorX=maxX;break;
+            default:floorX=0;break;
+        };
+        floorPositionArray.push(index);
         this.bottomFloorX=floorX;
         this.bottomFloorY=floorY;
         return cc.p(floorX,floorY);
     },
 
+    getReversePosition:function (preOneIndex){
+        var index=0;
+        preOneIndex>=0?(cc.randomMinus1To1()>=0?index=-1:index=-2)
+        :(cc.randomMinus1To1()>=0?index=1:index=2);
+        return index;
+    },
+
     setWidth:function (newFloor){
         //控制floor的随机宽度在initFloor宽度的1到1.5倍
-        var floorWidth=this.initFloor.width*(Math.abs(Math.random()-0.5)+1),
+        var floorWidth=this.initFloor.width,
             box=newFloor.getComponent(cc.PhysicsBoxCollider);
         newFloor.width=floorWidth;
         box.size=cc.size(floorWidth,1);
@@ -140,3 +177,8 @@ cc.Class({
         this.counters.string="Score："+this.score.toString();
     },
 });
+
+//通用变量
+module.exports = {
+    floorArray: floorPositionArray,
+};

@@ -21,7 +21,6 @@ cc.Class({
         this.finalScore.string="FINAL SCORE:"+score;
         this.scheduleOnce(this.playDeadAudio,1);
         //判断是不是最高分，如果是则保存
-        console.log(cc.sys.localStorage.getItem('userData'));
         var userData=JSON.parse(cc.sys.localStorage.getItem('userData'));
         if(userData.highestScore<score){
             userData.highestScore=score;

@@ -1,4 +1,5 @@
 var Global=require("global");
+var Game=require("game");
 var floorRestAction=null;
 cc.Class({
     extends: cc.Component,
@@ -113,7 +114,7 @@ cc.Class({
             this.playAudio(this,this.landAudioSource,false);
         }else{
             //防止跳上同一块木板不动的情况
-            if(floorRestAction&&floorRestAction._instanceId){
+            if((floorRestAction&&floorRestAction._instanceId)||Global.notFirst){
                 this.currentFloor.stopAction(floorRestAction);
             }
             this.setPlayerOnFloorState(true);
@@ -227,6 +228,8 @@ cc.Class({
     },
 
     playerFailed:function (){
+        //清空floor位置数组
+        Game.floorArray.splice(0,Game.floorArray.length);
         this.playAudio(this,this.deadAudioSource,false);
         //记录最后得分
         Global.score=this.game.score;
