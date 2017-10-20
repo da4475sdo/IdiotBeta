@@ -433,7 +433,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Credits",
+    "_name": "Score",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -561,7 +561,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "CREDITS",
+    "_N$string": "SCORE",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -675,7 +675,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "About",
+    "_name": "Credits",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -803,7 +803,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "ABOUT",
+    "_N$string": "CREDITS",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",

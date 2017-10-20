@@ -21,7 +21,7 @@ cc.Class({
 
     toAbout:function (){
         
-        cc.director.loadScene("about");
+        cc.director.loadScene("credits");
     },
 
 

@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "c7915ce3-2d22-462a-83e3-c2f99b3f0222",
+    "_id": "9dc73eb9-a3e2-48eb-a04c-14fcb7fa0b83",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -67,10 +67,13 @@
     "_components": [
       {
         "__id__": 12
+      },
+      {
+        "__id__": 13
       }
     ],
     "_prefab": null,
-    "_id": "5ea76e91mxBB7J3liZ1GE1L",
+    "_id": "27c9c7byoNJmbgtBZREPu+R",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -108,7 +111,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Introducion",
+    "_name": "HighScore",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -122,7 +125,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "23365WuB7RE75WeXSB5+kkO",
+    "_id": "a4279+PnM1BuIiNFvMC9TSh",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -139,8 +142,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 282.34,
-      "height": 400
+      "width": 304.61,
+      "height": 80
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -148,8 +151,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 5,
-      "y": 59
+      "x": 21,
+      "y": 119
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -169,13 +172,13 @@
     "_useOriginalSize": false,
     "_actualFontSize": 40,
     "_fontSize": 40,
-    "_lineHeight": 80,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "Art\n       水口技术员\n        李不炎\nPragramming\n       David Zhou",
-    "_N$horizontalAlign": 0,
+    "_N$string": "High Score：100\n",
+    "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0
@@ -206,7 +209,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "25f6cLh5iNJ8oWYDfBEvZQc",
+    "_id": "6dd7b7EFjlPVKkfl8svAftL",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -232,8 +235,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 2,
-      "y": -237
+      "x": 8,
+      "y": -74
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -258,7 +261,7 @@
       }
     ],
     "_prefab": null,
-    "_id": "71717cN9fVHMKTVKyh0LMz/",
+    "_id": "6b874EN3PlH77bv/zEh03K2",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -437,5 +440,17 @@
     },
     "_fitWidth": false,
     "_fitHeight": true
+  },
+  {
+    "__type__": "1414em23WRLWYbnMEmAiqMd",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "highestScoreText": {
+      "__id__": 4
+    }
   }
 ]

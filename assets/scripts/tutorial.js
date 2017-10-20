@@ -52,7 +52,7 @@ cc.Class({
         if(tutorialIndex===2){
             if(tutorialTwoGoals.left>=10&&tutorialTwoGoals.right>=20){
                 this.initMotionNode();
-                this.tutorialText.string="哇！完成了！恭喜你进入下一步（点击屏幕继续）";
+                this.tutorialText.string="complete! Congratulations (click on the screen to continue)";
                 tutorialIndex=3;
             }else{
                 var floorWidth=this.floor.width,
@@ -93,6 +93,7 @@ cc.Class({
 
     tutorialOne:function (){
         var tutorialString="欢迎来到Idiot游戏！下面我们将引导你进行游戏的基础操作教程（点击屏幕继续）";
+        var tutorialString="Welcome to Idiot! Here we will guide you through the tutorial of game (click on the screen to continue)"
         this.tutorialText.string=tutorialString;
         tutorialIndex=2;
         this.initMotionNode();
@@ -102,6 +103,8 @@ cc.Class({
         //绑定重力感应事件
         cc.systemEvent.on(cc.SystemEvent.EventType.DEVICEMOTION, this.onDeviceMotionEvent, this);
         var tutorialString="现在试着轻轻摇动你的手机来控制人物的左右移动";
+        var tutorialString="Now try to shake your phone gently to control the movement of people around";
+
         this.tutorialText.string=tutorialString;
         var textNode=this.tutorialText.node;
         textNode.setPosition(cc.v2(this.node.x/3,this.node.y/3));
@@ -117,6 +120,7 @@ cc.Class({
         //开启角色移动定时器
         isPlayerStop=true;
         this.tutorialText.string="快速地摇动你的手机来跳跃到另一块木板上";
+        this.tutorialText.string="Quickly shake your phone to jump to the another wood";
         var textNode=this.tutorialText.node;
         textNode.setPosition(cc.v2(-this.node.x/7,-this.node.y/2));
     },
@@ -128,6 +132,7 @@ cc.Class({
         this.player.getChildByName("Status").active=true;
         this.tutorialText.node.setPosition(cc.v2(this.node.x/3,this.node.y/3));
         this.tutorialText.string="接下来就是介绍角色的状态啦（点击屏幕继续）";
+        this.tutorialText.string="Then we will introduce the status of the role (click on the screen to continue)";
     },
 
     tutorialFive:function (){
@@ -135,6 +140,7 @@ cc.Class({
         //开启混乱状态
         playerScript.statusControl(1);
         this.tutorialText.string="混乱状态：角色将往控制方向相反移动（点击屏幕继续）";
+        this.tutorialText.string="Chaos:The role will move in the opposite direction of control (click on the screen to continue)";
         tutorialIndex=6;
     },
 
@@ -143,6 +149,7 @@ cc.Class({
         //开启狂暴状态
         playerScript.statusControl(2);
         this.tutorialText.string="狂暴状态：角色将移动得更快（点击屏幕继续）";
+        this.tutorialText.string="Rage:The role will move faster (click on the screen to continue)";
         tutorialIndex=7;
     },
 
@@ -152,6 +159,7 @@ cc.Class({
         var textNode=this.tutorialText.node;
         textNode.setPosition(cc.v2(8,9));
         this.tutorialText.string="哇！完成全部教程了！赶快开始游戏吧（点击屏幕开始游戏）";
+        this.tutorialText.string="Wow! Complete all tutorials! (click on the screen to start the game)";
         tutorialIndex=8;
     },
 
@@ -192,6 +200,7 @@ cc.Class({
             distanceFromCenter=Math.sqrt((playerX-floorX)*(playerX-floorX)+(playerY-floorY)*(playerY-floorY));
             if(distanceFromCenter>(floorWidth+playerWidth)/2){
                 this.tutorialText.string="oh!用力过大了，请再试一次（点击屏幕重试）";
+                this.tutorialText.string="Oh!Shaking overly (click screen to try again)";
                 tutorialTwoGoals.left=0;
                 tutorialTwoGoals.right=0;
             }
@@ -203,15 +212,15 @@ cc.Class({
                 playerY=this.player.y;
             if((floorJumpY)>playerY&&(floorJumpY-20)<playerY){
                 if(playerX<floorJumpX-floorJumpWidth/2){
-                    this.tutorialText.string="用力过轻了呢（点击屏幕重试）";
+                    this.tutorialText.string="Oh!Shaking overly (click screen to try again)";
                 }else{
-                    this.tutorialText.string="用力过大了呢（点击屏幕重试）";
+                    this.tutorialText.string="Oh!too gently (click screen to try again)";
                 }
             }
             if(this.player.getComponent("player").currentFloor===this.floorJump&&playerX>floorJumpX-floorJumpWidth/2
             &&playerY>=floorJumpY){
                 var textNode=this.tutorialText.node;
-                this.tutorialText.string="哇！完成了！恭喜你进入下一步（点击屏幕继续）";
+                this.tutorialText.string="complete! Congratulations (click on the screen to continue)";
                 tutorialIndex=4;
                 this.initMotionNode();                
             }

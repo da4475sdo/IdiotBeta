@@ -20,7 +20,7 @@ cc.Class({
     },
 
     toCredits:function (){
-        cc.director.loadScene("credits");
+        cc.director.loadScene("score");
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
