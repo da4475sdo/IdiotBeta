@@ -42,7 +42,7 @@ cc.Class({
     },
 
     // use this for initialization
-    onLoad: function () {        
+    onLoad: function () {     
         //播放背景音乐
         var BGM = cc.audioEngine.play(this.backgroundAudioSource, true, 1);
         //预加载游戏结束场景
@@ -66,6 +66,7 @@ cc.Class({
         while(this.bottomFloorY>this.node.y-this.node.height){
             var newFloor = cc.instantiate(this.otherFloor);
             this.node.addChild(newFloor);
+            newFloor.setSiblingIndex(6);
             newFloor.getComponent("floor").game=this;
             this.setWidth(newFloor);
             newFloor.setPosition(this.setPosition(newFloor));
@@ -82,7 +83,7 @@ cc.Class({
     setPosition:function (newFloor){
         var floorWidth=newFloor.width,
             minX=-(this.areaWidth/2)+floorWidth,
-            maxX=this.areaWidth/2-floorWidth,
+            maxX=this.areaWidth/2-floorWidth-20,
             floorX=0,
             floorY=this.bottomFloorY-(Math.random()+1.5)*this.floorGap,
             isPositionCError=true,
@@ -144,7 +145,8 @@ cc.Class({
         var floorWidth=this.initFloor.width,
             box=newFloor.getComponent(cc.PhysicsBoxCollider);
         newFloor.width=floorWidth;
-        box.size=cc.size(floorWidth,1);
+        box.size=cc.size(floorWidth-17,1);
+        box.offset=cc.v2(2,1);
         box.apply();
     },
 
@@ -174,7 +176,7 @@ cc.Class({
 
     setScore:function (_score){
         this.score=_score;
-        this.counters.string="Score："+this.score.toString();
+        this.counters.string=this.score.toString();
     },
 });
 

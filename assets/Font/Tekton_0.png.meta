@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5c98cadb-ba7b-4e2e-be93-335c35ca05bd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Tekton_0": {
+      "ver": "1.0.3",
+      "uuid": "7e53001e-6501-4261-8d5d-28e46011e511",
+      "rawTextureUuid": "5c98cadb-ba7b-4e2e-be93-335c35ca05bd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -9.5,
+      "offsetY": 159,
+      "trimX": 1,
+      "trimY": 16,
+      "width": 779,
+      "height": 450,
+      "rawWidth": 800,
+      "rawHeight": 800,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -13,9 +13,9 @@ cc.Class({
         var userData=cc.sys.localStorage.getItem('userData');
         if(userData){
             var score=JSON.parse(userData).highestScore;
-            this.highestScoreText.string="High Score:"+score;
+            this.highestScoreText.string=score;
         }else{
-            this.highestScoreText.string="High Score:0";
+            this.highestScoreText.string="0";
         }
     },
 
