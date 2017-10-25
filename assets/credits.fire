@@ -242,7 +242,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 282.34,
+      "width": 293.46,
       "height": 320
     },
     "_rotationX": 0,
@@ -251,8 +251,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 16,
-      "y": -26
+      "x": 11,
+      "y": 10
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -272,12 +272,12 @@
     "_useOriginalSize": false,
     "_actualFontSize": 40,
     "_fontSize": 40,
-    "_lineHeight": 80,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "       水口技术员\n        李不炎\n\n       David Zhou",
+    "_N$string": "       \n        水口技术员\n        \n        李不炎\n\n\n\n        David Zhou",
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -473,10 +473,10 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "b4e6d74e-4761-4383-adf0-7e061cf00f21"
     },
     "hoverSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "b4e6d74e-4761-4383-adf0-7e061cf00f21"
     },
     "clickEvents": [
       {

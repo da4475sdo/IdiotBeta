@@ -86,7 +86,8 @@ cc.Class({
             case 5:this.tutorialFive();break;
             case 6:this.tutorialSix();break;
             case 7:this.tutorialSeven();break;
-            case 8:this.skipTutorial();break;
+            case 0:this.tutorialFinal();break;
+            case -1:this.skipTutorial();break;
             default:this.tutorialOne();break;
         }
     },
@@ -156,14 +157,19 @@ cc.Class({
         tutorialIndex=7;
     },
 
-    tutorialSeven:function (){
+    tutorialFinal:function (){
         this.initMotionNode();
         this.toggleMotionNode();
         var textNode=this.tutorialText.node;
         textNode.setPosition(cc.v2(8,9));
         //this.tutorialText.string="哇！完成全部教程了！赶快开始游戏吧（点击屏幕开始游戏）";
         this.tutorialText.string="Wow! Complete all tutorials! \n(tap screen to start)";
-        tutorialIndex=8;
+        tutorialIndex=-1;
+    },
+
+    tutorialSeven:function (){
+        this.tutorialText.string="you can tap the screen to pause or resume game \n(tap screen to continue)";
+        tutorialIndex=0;
     },
 
     initMotionNode:function (){

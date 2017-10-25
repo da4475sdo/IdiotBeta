@@ -475,10 +475,10 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "b4e6d74e-4761-4383-adf0-7e061cf00f21"
     },
     "hoverSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "b4e6d74e-4761-4383-adf0-7e061cf00f21"
     },
     "clickEvents": [
       {
