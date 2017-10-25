@@ -34,6 +34,10 @@ cc.Class({
             default: null,
             type: cc.Label
         },
+        resumeSign:{
+            default: null,
+            type: cc.Node
+        },
         //死亡音效 
         backgroundAudioSource: {
             url: cc.AudioClip,
@@ -54,6 +58,8 @@ cc.Class({
         //开启碰撞系统
         var manager= cc.director.getCollisionManager();
         manager.enabled=true;
+        //绑定屏幕点击事件
+        this.node.on(cc.Node.EventType.TOUCH_START,this.toggleGame,this);
         //初始化当前最底层的floor坐标
         this.bottomFloorX=this.initFloor.x;
         this.bottomFloorY=this.initFloor.y;
@@ -177,6 +183,18 @@ cc.Class({
     setScore:function (_score){
         this.score=_score;
         this.counters.string=this.score.toString();
+    },
+
+    toggleGame:function (){
+        var _director=cc.director,
+            _resumeSign=this.resumeSign;
+        if(_director.isPaused()){
+            _director.resume();
+            _resumeSign.active=false;
+        }else{
+            _director.pause();
+            _resumeSign.active=true;
+        }
     },
 });
 
