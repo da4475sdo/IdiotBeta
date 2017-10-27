@@ -85,6 +85,7 @@ cc.Class({
             _currentFloor=this.currentFloor.getComponent("floor");
             //判断player是在floor上移动还是下落
             if((playerToFloorCenterDis<(this.currentFloor.width+this.node.width)/2)){
+                this.setPlayerAnimationDirection(distance);
                 this.groupMove(distance);
             }else{
                 this.playerFall(distance);
@@ -319,6 +320,14 @@ cc.Class({
             jumpHeight=100;
         }
         return jumpHeight;
+    },
+
+    setPlayerAnimationDirection:function (distance){
+        if(distance>=0){
+            this.node.setScale(1,1);
+        }else{
+            this.node.setScale(-1,1);
+        }
     },
 
     playAudio:function (target,audioSource,isLoop){
