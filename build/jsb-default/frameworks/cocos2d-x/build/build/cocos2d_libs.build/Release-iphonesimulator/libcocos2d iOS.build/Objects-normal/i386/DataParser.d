@@ -1,0 +1,26 @@
+dependencies: \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../cocos/platform/ios/cocos2d-prefix.pch \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/DataParser.cpp \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/DataParser.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../core/DragonBones.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/DragonBonesData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../core/BaseObject.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/ArmatureData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../geom/Transform.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../geom/Matrix.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../geom/Point.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../geom/ColorTransform.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../textures/TextureData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/../textures/../geom/Rectangle.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/AnimationData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/TimelineData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../model/FrameData.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/BaseTimelineState.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/Armature.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/../animation/IAnimateble.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/../events/EventObject.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/IArmatureDisplay.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/Slot.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/TransformObject.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/../armature/Bone.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/cocos/editor-support/dragonbones/parsers/../animation/AnimationState.h

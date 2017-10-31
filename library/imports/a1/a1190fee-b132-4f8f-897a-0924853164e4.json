@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "icon-2208-land",
+    "texture": "2137cf4f-d023-43dd-9091-1d01eb44cbc6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2208,
+      1242
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2208,
+      1242
+    ]
+  }
+}

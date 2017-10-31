@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "2137cf4f-d023-43dd-9091-1d01eb44cbc6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "icon-2208-land": {
+      "ver": "1.0.3",
+      "uuid": "a1190fee-b132-4f8f-897a-0924853164e4",
+      "rawTextureUuid": "2137cf4f-d023-43dd-9091-1d01eb44cbc6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 2208,
+      "height": 1242,
+      "rawWidth": 2208,
+      "rawHeight": 1242,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

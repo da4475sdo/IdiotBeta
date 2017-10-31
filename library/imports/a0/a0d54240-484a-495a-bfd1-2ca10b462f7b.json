@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "topTrap",
+    "texture": "4a6f3289-4afc-4650-894e-4be5de073911",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      2523,
+      199
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      2523,
+      199
+    ]
+  }
+}

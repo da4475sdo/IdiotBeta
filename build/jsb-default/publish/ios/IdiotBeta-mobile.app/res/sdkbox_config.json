@@ -1,0 +1,14 @@
+{
+    "ios": {
+        "Share": {
+            "platforms": {
+                "Twitter": {
+                    "params": {
+                        "secret": "3JdkoLEvznaLYQcNnmhBhfCWhRt0RCggzwQbuiZoKYRuCU3Jyh",
+                        "key": "4FJrgyCr1PCyaukwpS79LXJ5I"
+                    }
+                }
+            }
+        }
+    }
+}

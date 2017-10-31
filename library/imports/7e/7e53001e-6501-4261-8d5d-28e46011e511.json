@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Tekton_0",
+    "texture": "5c98cadb-ba7b-4e2e-be93-335c35ca05bd",
+    "atlas": "",
+    "rect": [
+      1,
+      16,
+      779,
+      450
+    ],
+    "offset": [
+      -9.5,
+      159
+    ],
+    "originalSize": [
+      800,
+      800
+    ]
+  }
+}

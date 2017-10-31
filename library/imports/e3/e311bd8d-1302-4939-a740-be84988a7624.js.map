@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../assets/scripts/assets/scripts/global.js"],"names":["module","exports","score","notFirst"],"mappings":";;;;;;AAAA;AACAA,OAAOC,OAAP,GAAiB;AACbC,WAAO,IADM;AAEbC,cAAS;AAFI,CAAjB","file":"global.js","sourceRoot":"../../../../assets/scripts","sourcesContent":["//通用变量\nmodule.exports = {\n    score: null,\n    notFirst:false,\n};"]}

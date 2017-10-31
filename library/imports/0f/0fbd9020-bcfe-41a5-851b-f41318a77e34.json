@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chaos",
+    "texture": "55150661-e24d-47f9-a1a8-fbdc73965878",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      214,
+      517
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      214,
+      517
+    ]
+  }
+}

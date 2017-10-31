@@ -4,11 +4,10 @@
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
-  "includeSdk": [
-    "anysdk"
-  ],
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,

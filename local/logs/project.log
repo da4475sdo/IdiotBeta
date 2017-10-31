@@ -1,0 +1,289 @@
+2017-10-31T13:03:19.796Z - normal: Load ~/.CocosCreator/settings.json
+2017-10-31T13:03:19.804Z - normal: checking language setting...
+2017-10-31T13:03:19.805Z - normal: Language: en
+2017-10-31T13:03:23.124Z - success: protocol editor-framework registered
+2017-10-31T13:03:23.125Z - success: protocol app registered
+2017-10-31T13:03:23.125Z - success: protocol theme registered
+2017-10-31T13:03:23.125Z - success: protocol profile registered
+2017-10-31T13:03:23.126Z - success: protocol packages registered
+2017-10-31T13:03:23.131Z - success: protocol unpack registerred
+2017-10-31T13:03:23.131Z - success: protocol disable-commonjs registerred
+2017-10-31T13:03:23.612Z - normal: connected!
+2017-10-31T13:03:23.616Z - normal: Check project /Users/davidzhou/Desktop/gamedevelop/IdiotBeta
+2017-10-31T13:03:23.618Z - normal: Initializing Cocos2d
+2017-10-31T13:03:24.391Z - normal: Initializing Asset Database
+2017-10-31T13:03:24.527Z - success: protocol uuid registerred
+2017-10-31T13:03:24.528Z - success: protocol db registerred
+2017-10-31T13:03:24.528Z - success: protocol thumbnail registerred
+2017-10-31T13:03:24.529Z - normal: Loading editor/builtin packages
+2017-10-31T13:03:24.730Z - success: anysdk loaded
+2017-10-31T13:03:25.151Z - success: assets loaded
+2017-10-31T13:03:25.174Z - success: builder loaded
+2017-10-31T13:03:25.184Z - success: hierarchy loaded
+2017-10-31T13:03:25.195Z - success: inspector loaded
+2017-10-31T13:03:25.201Z - success: keystore loaded
+2017-10-31T13:03:25.234Z - success: node-library loaded
+2017-10-31T13:03:25.238Z - success: package-asset loaded
+2017-10-31T13:03:25.241Z - success: preferences loaded
+2017-10-31T13:03:25.247Z - success: project-exporter loaded
+2017-10-31T13:03:25.282Z - success: project-importer loaded
+2017-10-31T13:03:25.290Z - success: project-settings loaded
+2017-10-31T13:03:25.309Z - success: ui-kit loaded
+2017-10-31T13:03:25.322Z - success: ui-grid loaded
+2017-10-31T13:03:25.339Z - success: scene loaded
+2017-10-31T13:03:25.341Z - success: sprite-editor loaded
+2017-10-31T13:03:25.352Z - success: store loaded
+2017-10-31T13:03:25.363Z - success: timeline loaded
+2017-10-31T13:03:25.363Z - normal: Loading builtin packages
+2017-10-31T13:03:25.380Z - success: asset-db-debugger loaded
+2017-10-31T13:03:25.381Z - success: color-picker loaded
+2017-10-31T13:03:25.433Z - success: console loaded
+2017-10-31T13:03:25.443Z - success: package-manager loaded
+2017-10-31T13:03:25.607Z - success: sdkbox loaded
+2017-10-31T13:03:25.677Z - normal: last time update is in one day
+2017-10-31T13:03:25.678Z - success: tester loaded
+2017-10-31T13:03:25.687Z - success: ui-kit-preview-extra loaded
+2017-10-31T13:03:25.697Z - success: ui-kit-preview loaded
+2017-10-31T13:03:25.703Z - success: ui-tree loaded
+2017-10-31T13:03:28.950Z - normal: Initializing project /Users/davidzhou/Desktop/gamedevelop/IdiotBeta
+2017-10-31T13:03:29.067Z - normal: Loading packages
+2017-10-31T13:03:29.082Z - normal: Watching packages
+2017-10-31T13:03:29.150Z - normal: Run Application
+2017-10-31T13:03:33.260Z - success: preview server running at http://localhost:7456
+2017-10-31T13:03:49.090Z - normal: 1.6.2
+2017-10-31T13:05:16.413Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build",
+  "debug": false,
+  "dest": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default",
+  "excludeScenes": [],
+  "excludedModules": [],
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": true,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.IdiotBeta",
+  "platform": "ios",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "renderMode": "0",
+  "scenes": [
+    "272f5260-8aa5-4ec0-accf-636d05819224",
+    "574d1fb0-b611-4f5a-a82e-e0c6263339ff",
+    "0926b504-4357-4886-9b6f-679639ebff09",
+    "c7915ce3-2d22-462a-83e3-c2f99b3f0222",
+    "9dc73eb9-a3e2-48eb-a04c-14fcb7fa0b83",
+    "35f8d0e9-fa35-4324-9600-77dd3d82ff8d"
+  ],
+  "sourceMaps": false,
+  "startScene": "272f5260-8aa5-4ec0-accf-636d05819224",
+  "template": "default",
+  "title": "IdiotBeta",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "project": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta",
+  "projectName": "IdiotBeta",
+  "debugBuildWorker": false
+}
+2017-10-31T13:05:16.418Z - normal: Building /Users/davidzhou/Desktop/gamedevelop/IdiotBeta
+2017-10-31T13:05:16.427Z - normal: Destination /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default
+2017-10-31T13:05:18.395Z - normal: Delete /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/res/**/*,/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/src/*/
+2017-10-31T13:05:18.636Z - normal: SDKBox: read config file successed
+2017-10-31T13:05:18.879Z - normal: SDKBox: backup config file successed
+2017-10-31T13:05:19.505Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:05:27.503Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2017-10-31T13:05:43.019Z - normal: Compiled project javascript file successfully
+2017-10-31T13:05:43.064Z - normal: Start building assets
+2017-10-31T13:05:43.064Z - normal: Start spawn build-worker
+2017-10-31T13:05:46.008Z - normal: Finish spawn build-worker
+2017-10-31T13:05:46.009Z - normal: Start init build-worker
+2017-10-31T13:06:06.668Z - normal: 1.6.2
+2017-10-31T13:06:07.115Z - normal: Finish init build-worker
+2017-10-31T13:06:07.115Z - normal: Start build-assets in worker
+2017-10-31T13:06:09.620Z - info: Enable "Inline all SpriteFrames" in native platform will increase the package size used in hot update.
+2017-10-31T13:06:10.295Z - normal: Finish build-assets in worker
+2017-10-31T13:06:10.311Z - normal: Finish building assets
+2017-10-31T13:06:10.508Z - normal: Start building raw assets
+2017-10-31T13:06:10.511Z - normal: Start building plugin scripts
+2017-10-31T13:06:11.719Z - normal: Finish building raw assets
+2017-10-31T13:06:12.385Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:06:20.497Z - normal: Built to "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default" successfully
+2017-10-31T13:06:21.633Z - normal: SDKBox: read backup config file successed
+2017-10-31T13:06:21.635Z - normal: SDKBox: write config successed
+2017-10-31T13:14:34.619Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:14:37.831Z - normal: Start to compile native project. Please wait...
+2017-10-31T13:14:37.831Z - normal: The log file path [ /Users/davidzhou/.CocosCreator/logs/native.log ]
+2017-10-31T13:15:58.655Z - normal: Compile native project successfully.
+2017-10-31T13:31:17.809Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build",
+  "debug": false,
+  "dest": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default",
+  "excludeScenes": [],
+  "excludedModules": [],
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.IdiotBeta",
+  "platform": "ios",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "renderMode": "0",
+  "scenes": [
+    "272f5260-8aa5-4ec0-accf-636d05819224",
+    "574d1fb0-b611-4f5a-a82e-e0c6263339ff",
+    "0926b504-4357-4886-9b6f-679639ebff09",
+    "c7915ce3-2d22-462a-83e3-c2f99b3f0222",
+    "9dc73eb9-a3e2-48eb-a04c-14fcb7fa0b83",
+    "35f8d0e9-fa35-4324-9600-77dd3d82ff8d"
+  ],
+  "sourceMaps": false,
+  "startScene": "272f5260-8aa5-4ec0-accf-636d05819224",
+  "template": "default",
+  "title": "IdiotBeta",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "project": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta",
+  "projectName": "IdiotBeta",
+  "debugBuildWorker": false
+}
+2017-10-31T13:31:17.847Z - normal: Building /Users/davidzhou/Desktop/gamedevelop/IdiotBeta
+2017-10-31T13:31:17.848Z - normal: Destination /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default
+2017-10-31T13:31:17.851Z - normal: Delete /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/res/**/*,/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/src/*/
+2017-10-31T13:31:17.892Z - normal: SDKBox: read config file successed
+2017-10-31T13:31:17.964Z - normal: SDKBox: backup config file successed
+2017-10-31T13:31:18.381Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:31:22.324Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2017-10-31T13:31:46.137Z - normal: Compiled project javascript file successfully
+2017-10-31T13:31:46.138Z - normal: Start building assets
+2017-10-31T13:31:46.139Z - normal: Start spawn build-worker
+2017-10-31T13:31:48.674Z - normal: Finish spawn build-worker
+2017-10-31T13:31:48.675Z - normal: Start init build-worker
+2017-10-31T13:31:56.009Z - normal: 1.6.2
+2017-10-31T13:31:56.371Z - normal: Finish init build-worker
+2017-10-31T13:31:56.371Z - normal: Start build-assets in worker
+2017-10-31T13:31:57.314Z - info: Enable "Inline all SpriteFrames" in native platform will increase the package size used in hot update.
+2017-10-31T13:31:58.406Z - normal: Finish build-assets in worker
+2017-10-31T13:31:58.416Z - normal: Finish building assets
+2017-10-31T13:31:58.579Z - normal: Start building raw assets
+2017-10-31T13:31:58.582Z - normal: Start building plugin scripts
+2017-10-31T13:31:59.711Z - normal: Finish building raw assets
+2017-10-31T13:32:00.936Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:32:10.254Z - normal: Built to "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default" successfully
+2017-10-31T13:32:10.274Z - normal: SDKBox: read backup config file successed
+2017-10-31T13:32:10.276Z - normal: SDKBox: write config successed
+2017-10-31T13:48:44.553Z - normal: Start building with options : {
+  "androidStudio": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "appKey": "",
+  "appSecret": "",
+  "buildPath": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build",
+  "debug": false,
+  "dest": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default",
+  "excludeScenes": [],
+  "excludedModules": [],
+  "includeAnySDK": false,
+  "includeEruda": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.IdiotBeta",
+  "platform": "ios",
+  "previewHeight": "720",
+  "previewWidth": "1280",
+  "privateKey": "",
+  "renderMode": "0",
+  "scenes": [
+    "272f5260-8aa5-4ec0-accf-636d05819224",
+    "574d1fb0-b611-4f5a-a82e-e0c6263339ff",
+    "0926b504-4357-4886-9b6f-679639ebff09",
+    "c7915ce3-2d22-462a-83e3-c2f99b3f0222",
+    "9dc73eb9-a3e2-48eb-a04c-14fcb7fa0b83",
+    "35f8d0e9-fa35-4324-9600-77dd3d82ff8d"
+  ],
+  "sourceMaps": false,
+  "startScene": "272f5260-8aa5-4ec0-accf-636d05819224",
+  "template": "default",
+  "title": "IdiotBeta",
+  "useDebugKeystore": true,
+  "vsVersion": "auto",
+  "webOrientation": "auto",
+  "project": "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta",
+  "projectName": "IdiotBeta",
+  "debugBuildWorker": false
+}
+2017-10-31T13:48:44.606Z - normal: Building /Users/davidzhou/Desktop/gamedevelop/IdiotBeta
+2017-10-31T13:48:44.607Z - normal: Destination /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default
+2017-10-31T13:48:44.608Z - normal: Delete /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/res/**/*,/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/src/*/
+2017-10-31T13:48:44.675Z - normal: SDKBox: read config file successed
+2017-10-31T13:48:44.753Z - normal: SDKBox: backup config file successed
+2017-10-31T13:48:44.984Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:48:48.001Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2017-10-31T13:48:57.584Z - normal: Compiled project javascript file successfully
+2017-10-31T13:48:57.584Z - normal: Start building assets
+2017-10-31T13:48:57.585Z - normal: Start spawn build-worker
+2017-10-31T13:48:59.878Z - normal: Finish spawn build-worker
+2017-10-31T13:48:59.879Z - normal: Start init build-worker
+2017-10-31T13:49:04.501Z - normal: 1.6.2
+2017-10-31T13:49:04.739Z - normal: Finish init build-worker
+2017-10-31T13:49:04.739Z - normal: Start build-assets in worker
+2017-10-31T13:49:05.625Z - info: Enable "Inline all SpriteFrames" in native platform will increase the package size used in hot update.
+2017-10-31T13:49:06.278Z - normal: Finish build-assets in worker
+2017-10-31T13:49:06.290Z - normal: Finish building assets
+2017-10-31T13:49:06.397Z - normal: Start building raw assets
+2017-10-31T13:49:06.399Z - normal: Start building plugin scripts
+2017-10-31T13:49:06.963Z - normal: Finish building raw assets
+2017-10-31T13:49:07.235Z - normal: Checked Python Version [2.7.10]
+2017-10-31T13:49:13.383Z - normal: Built to "/Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default" successfully
+2017-10-31T13:49:13.438Z - normal: SDKBox: read backup config file successed
+2017-10-31T13:49:13.440Z - normal: SDKBox: write config successed
+2017-10-31T14:28:44.354Z - info: shutdown preview server

@@ -1,0 +1,31 @@
+dependencies: \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../cocos/platform/ios/cocos2d-prefix.pch \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/external/sources/Box2D/Dynamics/b2World.cpp \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2World.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2Math.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2Settings.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2BlockAllocator.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2StackAllocator.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2ContactManager.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/b2BroadPhase.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/b2Collision.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/b2DynamicTree.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2GrowableStack.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2WorldCallbacks.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2TimeStep.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2Body.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/Shapes/b2Shape.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2Fixture.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/b2Island.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/Joints/b2PulleyJoint.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/Joints/b2Joint.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/Contacts/b2Contact.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Dynamics/Contacts/b2ContactSolver.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/Shapes/b2CircleShape.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/Shapes/b2EdgeShape.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/Shapes/b2ChainShape.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/Shapes/b2PolygonShape.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/b2TimeOfImpact.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Collision/b2Distance.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2Draw.h \
+  /Users/davidzhou/Desktop/gamedevelop/IdiotBeta/build/jsb-default/frameworks/cocos2d-x/build/../external/sources/Box2D/Common/b2Timer.h

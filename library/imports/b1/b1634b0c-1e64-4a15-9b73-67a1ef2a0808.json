@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "rage",
+    "texture": "2542c2f1-10a5-463e-a24c-6b8c0856ff85",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      274,
+      242
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      274,
+      242
+    ]
+  }
+}
