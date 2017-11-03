@@ -329,6 +329,7 @@ cc._RF.pop();
 mainMenuBtn: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "a7b74nWAbxH0reas2rk67Z+", "mainMenuBtn");
+var i = t("global");
 cc.Class({
 extends: cc.Component,
 properties: {},
@@ -339,14 +340,16 @@ cc.director.loadScene("mainMenu");
 },
 shareScore: function() {
 var t = {};
-t.text = "Hello World!!!!";
-t.title = "hello World";
-t.link = "http://www.sdkbox.com";
+t.text = "My score is " + i.score + " in IDIOTS!Come and try to beat me!";
+t.title = "IDIOTS";
+t.link = "https://user.qzone.qq.com/1833096654/infocenter";
 sdkbox.PluginShare.nativeShare(t);
 }
 });
 cc._RF.pop();
-}, {} ],
+}, {
+global: "global"
+} ],
 mainMenu: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "0c4a3/42thHU7eHay7Y16Hq", "mainMenu");
@@ -359,6 +362,15 @@ default: null
 }
 },
 onLoad: function() {
+var t = sdkbox.PluginShare;
+t.setListener({
+onShareState: function(t) {
+console.log("PluginShare onSharestate:" + t.state + " error:" + t.error);
+t.state == sdkbox.SocialShareState.SocialShareStateSuccess && console.log("post success");
+t.state == sdkbox.SocialShareState.SocialShareStateFail && console.log("post failed");
+}
+});
+t.init();
 this.preloadIndexScene();
 cc.audioEngine.play(this.BGMAudioSource, !0, 1);
 },
@@ -502,9 +514,10 @@ t.getComponent("floor").floorAngle = this.currentFloor.rotation;
 },
 playerFall: function(t) {
 this.setPlayerOnFloorState(!1);
-var e = Math.abs(this.speed) * t * (this.jumpLevel + Math.abs(t / 3)), o = this.setJumpHeight(Math.abs(t)), i = cc.callFunc(this.playAudio, this, this.jumpAudioSource, !1), n = cc.jumpBy(this.fallDuration, cc.p(e, 0), o, 1).easing(cc.easeOut(3));
+var e = Math.abs(this.speed) * t * (this.jumpLevel + Math.abs(t / 3)), o = this.setJumpHeight(Math.abs(t)), i = cc.jumpBy(this.fallDuration, cc.p(e, 0), o, 1).easing(cc.easeOut(3));
 this.jumpLandX = this.xPosition + e;
-this.node.runAction(cc.sequence(i, n));
+this.playAudio(this, this.jumpAudioSource, !1);
+this.node.runAction(i);
 },
 floorRest: function() {
 s = cc.rotateTo(.5, 0);

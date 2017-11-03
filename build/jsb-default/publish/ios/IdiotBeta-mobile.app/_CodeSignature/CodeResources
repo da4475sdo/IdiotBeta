@@ -34,7 +34,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		FxTCkr/JvjOW0iCtXj7p9aaFcdw=
+		Vr8K+LKTTGaZqiLwRgJbe/Osca8=
 		</data>
 		<key>Default-landscape-568h@2x.png</key>
 		<data>
@@ -83,10 +83,6 @@
 		<key>Icon-144.png</key>
 		<data>
 		3yLU+2ENu+5+ABFL2L9srA927Xw=
-		</data>
-		<key>Icon-152.png</key>
-		<data>
-		i9drw8Pgi2giZEAjVxEmVslWD+E=
 		</data>
 		<key>Icon-29.png</key>
 		<data>
@@ -1162,14 +1158,6 @@
 		<data>
 		PY5WM248NLHCvokB1ZCFkBhHKYY=
 		</data>
-		<key>icon/icon-180.png</key>
-		<data>
-		zYcmEvEsyd9eo+aB2X+GfENQWas=
-		</data>
-		<key>icon/icon-180.png.meta</key>
-		<data>
-		ZllI4sP440fGkvaHbhyjT+i7yns=
-		</data>
 		<key>icon/icon-2208-land.png</key>
 		<data>
 		GjOFyyz0ehIGdF/UmanRlIc3HDQ=
@@ -1425,6 +1413,10 @@
 		<data>
 		q3lFbN9hjMNQrHqtMrbitQGDW+w=
 		</data>
+		<key>res/import/cc/cc8f3222-e67e-497f-b968-fa0987aa983e.json</key>
+		<data>
+		jTeeQjW4qi96/5gvc8UsFEywpc0=
+		</data>
 		<key>res/raw-assets/Font/Tekton_0.png</key>
 		<data>
 		KKntm7iUUsRQ8qcAM8KrWi6kWUk=
@@ -1468,6 +1460,10 @@
 		<key>res/raw-assets/resources/rage.png</key>
 		<data>
 		cA7hkjgN3eFIJtForYNkf5czQZk=
+		</data>
+		<key>res/raw-assets/resources/shareImage.png</key>
+		<data>
+		zYcmEvEsyd9eo+aB2X+GfENQWas=
 		</data>
 		<key>res/raw-assets/textures/bg.png</key>
 		<data>
@@ -1519,7 +1515,7 @@
 		</data>
 		<key>res/sdkbox_config.json</key>
 		<data>
-		o37HVc1vFCRx9c1qfomCW2ZvmxM=
+		KKtfXkOAcqjcA5WIBKRkmRHQ2qE=
 		</data>
 		<key>ro.lproj/Localizable.strings</key>
 		<dict>
@@ -1585,7 +1581,7 @@
 		</data>
 		<key>script/debugger/actors/object.jsc</key>
 		<data>
-		DMuPjHdUbOQVPRwdRBTVAYswaqA=
+		i2UF5cTizOrxQz5J7eqI7CwV+OA=
 		</data>
 		<key>script/debugger/actors/root.jsc</key>
 		<data>
@@ -1621,7 +1617,7 @@
 		</data>
 		<key>script/debugger/protocol.jsc</key>
 		<data>
-		Cjr7s7aejbwuO77OPJ39rifBc1s=
+		edPyPzLGgsVqKgwCMHqO/nSt+aU=
 		</data>
 		<key>script/debugger/sdk/event-core.jsc</key>
 		<data>
@@ -1727,15 +1723,15 @@
 		</dict>
 		<key>src/jsb_polyfill.jsc</key>
 		<data>
-		KQECWuXqXTFujxp1bnpu11DtHZM=
+		ISlA3/02vwbx4+9rrAi9lgO46sU=
 		</data>
 		<key>src/project.jsc</key>
 		<data>
-		GlMSh36OMPHnGzCZHWAQ+y1Cdb4=
+		ss1ricVDy1WiZnoIw+zD0sRegF0=
 		</data>
 		<key>src/settings.jsc</key>
 		<data>
-		1hZK9UO98sPERgAyzhgDwr1zM3I=
+		QixuYz/av9tacAlUwEbfmJFKE6c=
 		</data>
 		<key>sv.lproj/Localizable.strings</key>
 		<dict>
@@ -1911,11 +1907,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FxTCkr/JvjOW0iCtXj7p9aaFcdw=
+			Vr8K+LKTTGaZqiLwRgJbe/Osca8=
 			</data>
 			<key>hash2</key>
 			<data>
-			C0cM32dGWtmGKDsNSJx4i5LdkNmDRsLm1N0G0XyH0Dk=
+			t5BaxMCs7mFmXb7aryhqh3ByRxndzllYzteuK+n1KUY=
 			</data>
 		</dict>
 		<key>Default-landscape-568h@2x.png</key>
@@ -2048,17 +2044,6 @@
 			<key>hash2</key>
 			<data>
 			sdeTMnc2VLsfeV0n3BxQKPgODvCSwnnDB/PixjuplQU=
-			</data>
-		</dict>
-		<key>Icon-152.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			i9drw8Pgi2giZEAjVxEmVslWD+E=
-			</data>
-			<key>hash2</key>
-			<data>
-			qE+2ixyqluAPhNf3FWML3uhSl7N0v4qu+A/JgRJGwQQ=
 			</data>
 		</dict>
 		<key>Icon-29.png</key>
@@ -4170,28 +4155,6 @@
 			FUcP6t399EjO5Bu8f0lqycjSTl6SkA01rQH9+ETJNL8=
 			</data>
 		</dict>
-		<key>icon/icon-180.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zYcmEvEsyd9eo+aB2X+GfENQWas=
-			</data>
-			<key>hash2</key>
-			<data>
-			DvZHYWrXLJDXa4OjcVDoQeEXGfSEL/ErpGIJK8dBSsM=
-			</data>
-		</dict>
-		<key>icon/icon-180.png.meta</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZllI4sP440fGkvaHbhyjT+i7yns=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZIQRDsi6RtEHkznTc6pgjIc596zTVwoCFAh6pGDs8SU=
-			</data>
-		</dict>
 		<key>icon/icon-2208-land.png</key>
 		<dict>
 			<key>hash</key>
@@ -4764,6 +4727,17 @@
 			Zw0s/1SIw9mOw3EPmV/wCmh2tk/R7788j4tuBAJJXXY=
 			</data>
 		</dict>
+		<key>res/import/cc/cc8f3222-e67e-497f-b968-fa0987aa983e.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jTeeQjW4qi96/5gvc8UsFEywpc0=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZykuuUBbHpoQISDQpj/8iQqiQrhHcZt1D4csgZWgcos=
+			</data>
+		</dict>
 		<key>res/raw-assets/Font/Tekton_0.png</key>
 		<dict>
 			<key>hash</key>
@@ -4883,6 +4857,17 @@
 			<key>hash2</key>
 			<data>
 			8LwFGdMKywEXcJZlIbsUg7NPihaIA35Dki4d/RdGCmY=
+			</data>
+		</dict>
+		<key>res/raw-assets/resources/shareImage.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zYcmEvEsyd9eo+aB2X+GfENQWas=
+			</data>
+			<key>hash2</key>
+			<data>
+			DvZHYWrXLJDXa4OjcVDoQeEXGfSEL/ErpGIJK8dBSsM=
 			</data>
 		</dict>
 		<key>res/raw-assets/textures/bg.png</key>
@@ -5021,11 +5006,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			o37HVc1vFCRx9c1qfomCW2ZvmxM=
+			KKtfXkOAcqjcA5WIBKRkmRHQ2qE=
 			</data>
 			<key>hash2</key>
 			<data>
-			oyUbFoshdHf30q/5YZZSE9BT5enpBuwBnUmJpY50zlk=
+			8nivyWUyvcs8UsiTiuLbeIuzYn/jMOWxgFoRbdAI12o=
 			</data>
 		</dict>
 		<key>ro.lproj/Localizable.strings</key>
@@ -5179,11 +5164,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DMuPjHdUbOQVPRwdRBTVAYswaqA=
+			i2UF5cTizOrxQz5J7eqI7CwV+OA=
 			</data>
 			<key>hash2</key>
 			<data>
-			wWvHka4fxFChDQhHwjdvZ8mZkjyxrw3RI1badkwfrEY=
+			yFwPpVJYIGNJEZIxEQWQT+MCrG6c5/bqzCFoi5hdHfc=
 			</data>
 		</dict>
 		<key>script/debugger/actors/root.jsc</key>
@@ -5278,11 +5263,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Cjr7s7aejbwuO77OPJ39rifBc1s=
+			edPyPzLGgsVqKgwCMHqO/nSt+aU=
 			</data>
 			<key>hash2</key>
 			<data>
-			TeauNlwKNWMa3G2ACBq0DaTOdekxbuNGzJ5SAfpWeFo=
+			4MSY8RSu5cEDQVe8K6gVohDgHCsGaCAzAplNdXQZOuk=
 			</data>
 		</dict>
 		<key>script/debugger/sdk/event-core.jsc</key>
@@ -5546,33 +5531,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KQECWuXqXTFujxp1bnpu11DtHZM=
+			ISlA3/02vwbx4+9rrAi9lgO46sU=
 			</data>
 			<key>hash2</key>
 			<data>
-			NxwGlezX8HWcvVM4Y3U07vvZO0GH1jQT2re9p9dEtl4=
+			yWSXoOvsTYXv5Pg68PwonYlEu0TR0G89wUs0JmbI/7w=
 			</data>
 		</dict>
 		<key>src/project.jsc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GlMSh36OMPHnGzCZHWAQ+y1Cdb4=
+			ss1ricVDy1WiZnoIw+zD0sRegF0=
 			</data>
 			<key>hash2</key>
 			<data>
-			sMNJKEI6K4IEpEhI0Vq54NlbO0Nc5MVmsvgZV/SaqGM=
+			gai0d0ug4Sap6O3UQ6XpmvfLI6FaINnO2tLWX/m/1/M=
 			</data>
 		</dict>
 		<key>src/settings.jsc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1hZK9UO98sPERgAyzhgDwr1zM3I=
+			QixuYz/av9tacAlUwEbfmJFKE6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			uRW+o+FXp0LvMOnmRsuC0HxsL8M6VbP4rR6S0Ij+CbM=
+			vYcd6Lk6a3Ad/FPpmzr5POckNfs55QOJclDgAHZojW8=
 			</data>
 		</dict>
 		<key>sv.lproj/Localizable.strings</key>

@@ -4,6 +4,8 @@ cc._RF.push(module, 'a7b74nWAbxH0reas2rk67Z+', 'mainMenuBtn');
 
 "use strict";
 
+var Global = require("global");
+
 cc.Class({
     extends: cc.Component,
 
@@ -31,10 +33,9 @@ cc.Class({
 
     shareScore: function shareScore() {
         var shareInfo = {};
-        shareInfo.text = "Hello World!!!!";
-        shareInfo.title = "hello World";
-        //shareInfo.image = "path/to/image"
-        shareInfo.link = "http://www.sdkbox.com";
+        shareInfo.text = "My score is " + Global.score + " in IDIOTS!Come and try to beat me!";
+        shareInfo.title = "IDIOTS";
+        shareInfo.link = "https://user.qzone.qq.com/1833096654/infocenter";
         sdkbox.PluginShare.nativeShare(shareInfo);
     }
 
@@ -43,5 +44,6 @@ cc.Class({
 
     // },
 });
+Global;
 
 cc._RF.pop();

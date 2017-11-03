@@ -28,13 +28,6 @@
 #include "PluginFacebookJSHelper.h"
 #endif
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS) && PACKAGE_AS
-#include "SDKManager.h"
-#include "jsb_anysdk_protocols_auto.hpp"
-#include "manualanysdkbindings.hpp"
-using namespace anysdk::framework;
-#endif
-
 USING_NS_CC;
 
 AppDelegate::AppDelegate()

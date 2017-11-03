@@ -220,10 +220,10 @@ cc.Class({
             _jumpLevel = this.jumpLevel + Math.abs(distance / 3),
             landX = playerSpeed * distance * _jumpLevel,
             jumpHeight = this.setJumpHeight(Math.abs(distance)),
-            callback = cc.callFunc(this.playAudio, this, this.jumpAudioSource, false),
             fallXMove = cc.jumpBy(this.fallDuration, cc.p(landX, 0), jumpHeight, 1).easing(cc.easeOut(3.0));
         this.jumpLandX = this.xPosition + landX;
-        this.node.runAction(cc.sequence(callback, fallXMove));
+        this.playAudio(this, this.jumpAudioSource, false);
+        this.node.runAction(fallXMove);
     },
 
     floorRest: function floorRest() {

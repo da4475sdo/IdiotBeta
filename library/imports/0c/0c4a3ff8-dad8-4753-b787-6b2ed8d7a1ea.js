@@ -17,6 +17,19 @@ cc.Class({
 
     // use this for initialization
     onLoad: function onLoad() {
+        var plugin = sdkbox.PluginShare;
+        plugin.setListener({
+            onShareState: function onShareState(response) {
+                console.log("PluginShare onSharestate:" + response.state + " error:" + response.error);
+                if (response.state == sdkbox.SocialShareState.SocialShareStateSuccess) {
+                    console.log("post success");
+                }
+                if (response.state == sdkbox.SocialShareState.SocialShareStateFail) {
+                    console.log("post failed");
+                }
+            }
+        });
+        plugin.init();
         this.preloadIndexScene();
         //播放背景音乐
         cc.audioEngine.play(this.BGMAudioSource, true, 1);

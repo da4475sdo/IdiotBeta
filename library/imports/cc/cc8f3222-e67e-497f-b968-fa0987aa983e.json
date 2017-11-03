@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "icon-180",
+    "name": "shareImage",
     "texture": "7ff2b181-b8f9-42d2-a941-823fd4542f6d",
     "atlas": "",
     "rect": [

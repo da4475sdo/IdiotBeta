@@ -1,5 +1,8 @@
 {
     "ios": {
+        "Facebook": {
+            "debug": true
+        },
         "Share": {
             "platforms": {
                 "Twitter": {
