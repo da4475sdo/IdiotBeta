@@ -32,8 +32,9 @@ cc.Class({
     },
 
     shareScore: function shareScore() {
-        var shareInfo = {};
-        shareInfo.text = "My score is " + Global.score + " in IDIOTS!Come and try to beat me!";
+        var shareInfo = {},
+            userData = JSON.parse(cc.sys.localStorage.getItem('userData'));;
+        shareInfo.text = "My score is " + userData.highestScore + " in IDIOTS!Come and try to beat me!";
         shareInfo.title = "IDIOTS";
         shareInfo.link = "http://120.78.57.98:8080/share/shareImage.html";
         sdkbox.PluginShare.nativeShare(shareInfo);

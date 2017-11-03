@@ -1,10 +1,10 @@
 require = function t(e, o, i) {
-function n(r, a) {
+function s(r, a) {
 if (!o[r]) {
 if (!e[r]) {
 var c = "function" == typeof require && require;
 if (!a && c) return c(r, !0);
-if (s) return s(r, !0);
+if (n) return n(r, !0);
 var l = new Error("Cannot find module '" + r + "'");
 throw l.code = "MODULE_NOT_FOUND", l;
 }
@@ -13,13 +13,13 @@ exports: {}
 };
 e[r][0].call(u.exports, function(t) {
 var o = e[r][1][t];
-return n(o || t);
+return s(o || t);
 }, u, u.exports, t, e, o, i);
 }
 return o[r].exports;
 }
-for (var s = "function" == typeof require && require, r = 0; r < i.length; r++) n(i[r]);
-return n;
+for (var n = "function" == typeof require && require, r = 0; r < i.length; r++) s(i[r]);
+return s;
 }({
 about: [ function(t, e, o) {
 "use strict";
@@ -209,7 +209,7 @@ this.floorCount++;
 }
 },
 setPosition: function(t) {
-var e = t.width, o = -this.areaWidth / 2 + e, n = this.areaWidth / 2 - e - 20, s = 0, r = this.bottomFloorY - (Math.random() + 1.5) * this.floorGap, a = 0, c = i.length;
+var e = t.width, o = -this.areaWidth / 2 + e, s = this.areaWidth / 2 - e - 20, n = 0, r = this.bottomFloorY - (Math.random() + 1.5) * this.floorGap, a = 0, c = i.length;
 if (c > 1) {
 var l = i[c - 2], u = i[c - 1];
 switch (u + l) {
@@ -243,32 +243,32 @@ a = u > l ? cc.randomMinus1To1() >= 0 ? 0 : -1 : cc.randomMinus1To1() >= 0 ? -1 
 } else a = 0 === c ? 2 : cc.randomMinus1To1() >= 0 ? -1 : -2;
 switch (a) {
 case -1:
-s = o;
+n = o;
 break;
 
 case -2:
-s = o / 2;
+n = o / 2;
 break;
 
 case 0:
-s = 0;
+n = 0;
 break;
 
 case 1:
-s = n / 2;
+n = s / 2;
 break;
 
 case 2:
-s = n;
+n = s;
 break;
 
 default:
-s = 0;
+n = 0;
 }
 i.push(a);
-this.bottomFloorX = s;
+this.bottomFloorX = n;
 this.bottomFloorY = r;
-return cc.p(s, r);
+return cc.p(n, r);
 },
 getReversePosition: function(t) {
 return t >= 0 ? cc.randomMinus1To1() >= 0 ? -1 : -2 : cc.randomMinus1To1() >= 0 ? 1 : 2;
@@ -329,7 +329,7 @@ cc._RF.pop();
 mainMenuBtn: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "a7b74nWAbxH0reas2rk67Z+", "mainMenuBtn");
-var i = t("global");
+t("global");
 cc.Class({
 extends: cc.Component,
 properties: {},
@@ -339,8 +339,8 @@ cc.audioEngine.stopAll();
 cc.director.loadScene("mainMenu");
 },
 shareScore: function() {
-var t = {};
-t.text = "My score is " + i.score + " in IDIOTS!Come and try to beat me!";
+var t = {}, e = JSON.parse(cc.sys.localStorage.getItem("userData"));
+t.text = "My score is " + e.highestScore + " in IDIOTS!Come and try to beat me!";
 t.title = "IDIOTS";
 t.link = "http://120.78.57.98:8080/share/shareImage.html";
 sdkbox.PluginShare.nativeShare(t);
@@ -397,7 +397,7 @@ cc._RF.pop();
 player: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "93f33vjOIdMU6wSJmoj2IOa", "player");
-var i = t("global"), n = t("game"), s = null;
+var i = t("global"), s = t("game"), n = null;
 cc.Class({
 extends: cc.Component,
 properties: {
@@ -464,16 +464,16 @@ this.floorRest();
 }
 },
 onBeginContact: function(t, e, o) {
-var n = o.node;
-if ("boundary" !== n.group) if (n != this.currentFloor) {
-this.currentFloor = n;
+var s = o.node;
+if ("boundary" !== s.group) if (s != this.currentFloor) {
+this.currentFloor = s;
 this.xPosition = this.node.x;
 this.setPlayerOnFloorState(!0);
-var r = n.tag;
+var r = s.tag;
 this.game && this.game.setScore(r);
 this.playAudio(this, this.landAudioSource, !1);
 } else {
-(s && s._instanceId || i.notFirst) && this.currentFloor.stopAction(s);
+(n && n._instanceId || i.notFirst) && this.currentFloor.stopAction(n);
 this.setPlayerOnFloorState(!0);
 } else this.playerFailed();
 },
@@ -501,11 +501,11 @@ return e.floorAngle > 0;
 },
 update: function(t) {
 if (this.isOnFloor) {
-var e = this.currentFloor.getComponent("floor"), o = cc.rotateBy(e.rotateDuration, e.rotateAngle), i = cc.callFunc(this.getFloorAngle, this, e), n = e.maxFloorAngle - e.baseRotateAngle;
+var e = this.currentFloor.getComponent("floor"), o = cc.rotateBy(e.rotateDuration, e.rotateAngle), i = cc.callFunc(this.getFloorAngle, this, e), s = e.maxFloorAngle - e.baseRotateAngle;
 this.node.x = this.xPosition;
-(e.floorAngle < n && e.floorAngle > -n || e.floorAngle * e.rotateAngle <= 0) && this.currentFloor.runAction(cc.sequence(o, i));
+(e.floorAngle < s && e.floorAngle > -s || e.floorAngle * e.rotateAngle <= 0) && this.currentFloor.runAction(cc.sequence(o, i));
 } else if (this.game) {
-var s = this.game.node.width, r = -s / 2, a = s / 2, c = -this.game.node.height / 2, l = this.node.x, u = this.node.y;
+var n = this.game.node.width, r = -n / 2, a = n / 2, c = -this.game.node.height / 2, l = this.node.x, u = this.node.y;
 (l <= r || l >= a || u < c) && this.playerFailed();
 }
 },
@@ -520,11 +520,11 @@ this.playAudio(this, this.jumpAudioSource, !1);
 this.node.runAction(i);
 },
 floorRest: function() {
-s = cc.rotateTo(.5, 0);
-this.currentFloor.runAction(s);
+n = cc.rotateTo(.5, 0);
+this.currentFloor.runAction(n);
 },
 playerFailed: function() {
-n.floorArray.splice(0, n.floorArray.length);
+s.floorArray.splice(0, s.floorArray.length);
 this.playAudio(this, this.deadAudioSource, !1);
 i.score = this.game.score;
 cc.director.loadScene("gameOver");
@@ -632,7 +632,7 @@ global: "global"
 tutorial: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "5e3f9LcbHNJNopHyWGAVcxd", "tutorial");
-var i = 1, n = !0, s = {
+var i = 1, s = !0, n = {
 left: 0,
 right: 0
 };
@@ -668,8 +668,8 @@ this.node.on(cc.Node.EventType.TOUCH_START, this.tutorialProgress, this);
 this.tutorialProgress();
 },
 onDeviceMotionEvent: function(t) {
-n && this.scheduleOnce(this.setPlayerMotion, 1);
-if (2 === i) if (s.left >= 10 && s.right >= 20) {
+s && this.scheduleOnce(this.setPlayerMotion, 1);
+if (2 === i) if (n.left >= 10 && n.right >= 20) {
 this.initMotionNode();
 this.tutorialText.string = "complete! Congratulations \n(tap screen to continue)";
 i = 3;
@@ -677,13 +677,13 @@ i = 3;
 this.floor.width, this.player.width;
 var e = this.floor.x, o = this.floor.y, r = this.player.x, a = this.player.y;
 Math.sqrt((r - e) * (r - e) + (a - o) * (a - o));
-r >= e ? s.right++ : s.left++;
+r >= e ? n.right++ : n.left++;
 }
 },
 setPlayerMotion: function() {
 this.player.getComponent("player").speed = 2;
 this.floor.getComponent("floor").baseRotateAngle = 15;
-n = !1;
+s = !1;
 },
 tutorialProgress: function() {
 switch (i) {
@@ -740,12 +740,12 @@ t.setPosition(cc.v2(this.node.x / 5, 0));
 t.setContentSize(500, 200);
 this.initMotionNode();
 this.toggleMotionNode(!0);
-n = !0;
+s = !0;
 },
 tutorialThree: function() {
 this.initMotionNode();
 this.floorJump.active = !0;
-n = !0;
+s = !0;
 this.tutorialText.string = "Quickly shake your phone to jump to the another wood";
 this.tutorialText.node.setPosition(cc.v2(-this.node.x / 7, -this.node.y / 2));
 },
@@ -801,11 +801,11 @@ this.floor.opacity = 0;
 },
 update: function(t) {
 if (2 === i) {
-var e = this.floor.width, o = this.player.width, n = this.floor.x, r = this.floor.y, a = this.player.x, c = this.player.y;
-if (Math.sqrt((a - n) * (a - n) + (c - r) * (c - r)) > (e + o) / 2) {
+var e = this.floor.width, o = this.player.width, s = this.floor.x, r = this.floor.y, a = this.player.x, c = this.player.y;
+if (Math.sqrt((a - s) * (a - s) + (c - r) * (c - r)) > (e + o) / 2) {
 this.tutorialText.string = "Oh!Shaking overly \n(tap screen to try again)";
-s.left = 0;
-s.right = 0;
+n.left = 0;
+n.right = 0;
 }
 } else if (3 === i) {
 var l = this.floorJump.width, u = this.floorJump.x, h = this.floorJump.y, a = this.player.x;
