@@ -342,7 +342,7 @@ shareScore: function() {
 var t = {};
 t.text = "My score is " + i.score + " in IDIOTS!Come and try to beat me!";
 t.title = "IDIOTS";
-t.link = "https://user.qzone.qq.com/1833096654/infocenter";
+t.link = "http://120.78.57.98:8080/share/shareImage.html";
 sdkbox.PluginShare.nativeShare(t);
 }
 });

@@ -300,7 +300,7 @@
     "relativePath": "main.fire"
   },
   "e3b26604-6938-4c2a-842c-a7487740bf94": {
-    "asset": 1508745633000,
+    "asset": 1509628789000,
     "meta": 1508745633000,
     "relativePath": "resources"
   },
@@ -505,7 +505,7 @@
     "relativePath": "textures/btnPressed.png"
   },
   "b842f079-c29f-4af3-8e45-ee2f7fecfeb9": {
-    "asset": 1509427615000,
+    "asset": 1509674887000,
     "meta": 1509427615000,
     "relativePath": "icon"
   },
@@ -604,9 +604,14 @@
     "meta": 1509634443000,
     "relativePath": "scripts/player.js"
   },
+  "75949c1f-0b4a-4090-a900-ebc51aca4fd6": {
+    "asset": 1509414017000,
+    "meta": 1509674889000,
+    "relativePath": "icon/icon-180.png"
+  },
   "a7b749d6-01bc-47d2-b79a-b36ae4ebb67e": {
-    "asset": 1509639495000,
-    "meta": 1509639499000,
+    "asset": 1509676052000,
+    "meta": 1509676060000,
     "relativePath": "scripts/mainMenuBtn.js"
   }
 }

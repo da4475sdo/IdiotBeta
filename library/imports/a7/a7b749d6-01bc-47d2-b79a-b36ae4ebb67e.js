@@ -35,7 +35,7 @@ cc.Class({
         var shareInfo = {};
         shareInfo.text = "My score is " + Global.score + " in IDIOTS!Come and try to beat me!";
         shareInfo.title = "IDIOTS";
-        shareInfo.link = "https://user.qzone.qq.com/1833096654/infocenter";
+        shareInfo.link = "http://120.78.57.98:8080/share/shareImage.html";
         sdkbox.PluginShare.nativeShare(shareInfo);
     }
 
