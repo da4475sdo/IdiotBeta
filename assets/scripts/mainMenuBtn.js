@@ -32,7 +32,7 @@ cc.Class({
         userData=JSON.parse(cc.sys.localStorage.getItem('userData'));;
         shareInfo.text = "My score is "+userData.highestScore+" in IDIOTS!Come and try to beat me!";
         shareInfo.title = "IDIOTS";
-        shareInfo.link = "http://120.78.57.98:8080/share/shareImage.html";
+        shareInfo.link = "https://itunes.apple.com/us/app/idiot-jump/id1308722842?l=zh&ls=1&mt=8";
         sdkbox.PluginShare.nativeShare(shareInfo);
     },
 

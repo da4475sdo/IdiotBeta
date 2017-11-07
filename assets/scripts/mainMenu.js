@@ -19,7 +19,7 @@ cc.Class({
                     console.log("post success");
                 }
                 if (response.state == sdkbox.SocialShareState.SocialShareStateFail) {
-                    console.log("post failed");
+                    console.log("post falied");
                 }
                 
             }

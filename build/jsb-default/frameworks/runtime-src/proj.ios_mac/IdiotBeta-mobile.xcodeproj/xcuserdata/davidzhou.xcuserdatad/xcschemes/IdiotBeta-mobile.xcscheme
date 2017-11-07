@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A922753C1517C094001B78AA"
-               BuildableName = "IdiotBeta-mobile.app"
-               BlueprintName = "IdiotBeta-mobile"
+               BuildableName = "Idiots Jump.app"
+               BlueprintName = "Idiots Jump"
                ReferencedContainer = "container:IdiotBeta.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A922753C1517C094001B78AA"
-            BuildableName = "IdiotBeta-mobile.app"
-            BlueprintName = "IdiotBeta-mobile"
+            BuildableName = "Idiots Jump.app"
+            BlueprintName = "Idiots Jump"
             ReferencedContainer = "container:IdiotBeta.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,8 +58,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A922753C1517C094001B78AA"
-            BuildableName = "IdiotBeta-mobile.app"
-            BlueprintName = "IdiotBeta-mobile"
+            BuildableName = "Idiots Jump.app"
+            BlueprintName = "Idiots Jump"
             ReferencedContainer = "container:IdiotBeta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A922753C1517C094001B78AA"
-            BuildableName = "IdiotBeta-mobile.app"
-            BlueprintName = "IdiotBeta-mobile"
+            BuildableName = "Idiots Jump.app"
+            BlueprintName = "Idiots Jump"
             ReferencedContainer = "container:IdiotBeta.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
